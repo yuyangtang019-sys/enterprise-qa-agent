@@ -1,0 +1,80 @@
+{
+  "name": "outside",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "生育津贴具体金额是多少？"
+    },
+    "raw_body_size": 52
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "task_status": "awaiting_user",
+      "outcome": "insufficient_evidence",
+      "answer": "请问您所在的城市是哪里？参保的是职工生育保险还是城乡居民？",
+      "citations": [],
+      "gaps": [
+        "生育津贴金额因城市、参保类型和缴费基数不同，缺少这些信息无法给出具体金额。"
+      ]
+    },
+    "trace": {
+      "run_id": "2114a85a-8a5d-45e6-829b-163cf7e7017a",
+      "timestamp": "2026-11-04T09:16:54.558650+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "生育津贴具体金额是多少？",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "ask_user",
+            "purpose": "明确城市与参保情况以检索对应生育津贴标准",
+            "question": "请问您所在的城市是哪里？参保的是职工生育保险还是城乡居民？",
+            "reason": "生育津贴金额因城市、参保类型和缴费基数不同，缺少这些信息无法给出具体金额。"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "ask_user"
+          },
+          "attempts": 1,
+          "elapsed_ms": 1298
+        }
+      ],
+      "result": {
+        "task_status": "awaiting_user",
+        "outcome": "insufficient_evidence",
+        "answer": "请问您所在的城市是哪里？参保的是职工生育保险还是城乡居民？",
+        "citations": [],
+        "gaps": [
+          "生育津贴金额因城市、参保类型和缴费基数不同，缺少这些信息无法给出具体金额。"
+        ]
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "business_envelope": true,
+    "result_matches_trace": true,
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "no_answer": true,
+    "gaps": true,
+    "no_fabrication": true
+  },
+  "passed": true,
+  "elapsed_seconds": 1.323
+}

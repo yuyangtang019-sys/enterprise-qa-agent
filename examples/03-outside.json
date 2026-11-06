@@ -1,0 +1,83 @@
+{
+  "run_id": "130dd908-2e24-466e-bdbb-9131d9d01911",
+  "timestamp": "2026-11-04T08:57:43.952686+00:00",
+  "mode": "mock",
+  "provider": "offline simulator (NOT a language model)",
+  "model": "observation-driven-mock-v1",
+  "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+  "user_input": "生育津贴有多少？",
+  "max_steps": 8,
+  "history": [],
+  "steps": [
+    {
+      "step": 1,
+      "action": {
+        "action": "search",
+        "purpose": "离线模拟：根据当前观察选择动作",
+        "query": "生育津贴有多少？"
+      },
+      "observation": {
+        "ok": true,
+        "tool": "search",
+        "hits": []
+      },
+      "attempts": 1,
+      "elapsed_ms": 0
+    },
+    {
+      "step": 2,
+      "action": {
+        "action": "search",
+        "purpose": "离线模拟：根据当前观察选择动作",
+        "query": "生育 医疗 津贴 报销"
+      },
+      "observation": {
+        "ok": true,
+        "tool": "search",
+        "hits": [
+          {
+            "document_id": "EXPENSE",
+            "version": "2026-02-01",
+            "title": "报销材料",
+            "score": 1,
+            "fragment_ids": [
+              "p1"
+            ],
+            "summary": "报销材料 差旅报销须提交发票、行程单及审批记录。"
+          }
+        ]
+      },
+      "attempts": 1,
+      "elapsed_ms": 0
+    },
+    {
+      "step": 3,
+      "action": {
+        "action": "finish",
+        "purpose": "离线模拟：根据当前观察选择动作",
+        "outcome": "insufficient_evidence",
+        "answer": "知识库没有足够资料回答该问题。",
+        "citations": [],
+        "gaps": [
+          "缺少该主题的正式制度及适用范围。"
+        ]
+      },
+      "observation": {
+        "ok": true,
+        "tool": "finish"
+      },
+      "attempts": 1,
+      "elapsed_ms": 0
+    }
+  ],
+  "result": {
+    "outcome": "insufficient_evidence",
+    "answer": "知识库没有足够资料回答该问题。",
+    "citations": [],
+    "gaps": [
+      "缺少该主题的正式制度及适用范围。"
+    ],
+    "task_status": "completed"
+  },
+  "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+}

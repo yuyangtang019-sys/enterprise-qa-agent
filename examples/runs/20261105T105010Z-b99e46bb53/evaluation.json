@@ -1,0 +1,31 @@
+{
+  "mode": "real",
+  "started_unix": 1793875810.5256596,
+  "elapsed_seconds": 5.589,
+  "count": 1,
+  "passed": 1,
+  "cases": [
+    {
+      "name": "calculation",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "shanghai": true,
+        "beijing": true,
+        "correct_difference": true,
+        "correct_total": true,
+        "verified_derivations": true,
+        "replacement_claim_supported": true
+      }
+    }
+  ]
+}

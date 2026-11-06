@@ -1,0 +1,464 @@
+{
+  "name": "synthesis",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "上海和北京各住一晚，分别限额多少，报销要交哪些材料？"
+    },
+    "raw_body_size": 94
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "outcome": "answered",
+      "answer": "差旅住宿现行制度（TRAVEL-NEW，版本2026-01-01，范围全体员工境内差旅）：上海住宿上限每晚600元。[C1]\n差旅住宿现行制度（TRAVEL-NEW，版本2026-01-01，范围全体员工境内差旅）：北京住宿上限每晚650元。[C2]\nTRAVEL-NEW 替代 TRAVEL-OLD。[C3]\n报销材料（EXPENSE，版本2026-02-01，范围全体员工）：差旅报销须提交发票、行程单及审批记录。[C4]",
+      "citations": [
+        {
+          "citation_id": "C1",
+          "document_id": "TRAVEL-NEW",
+          "version": "2026-01-01",
+          "fragment_id": "p1",
+          "quote": "上海住宿上限每晚600元。"
+        },
+        {
+          "citation_id": "C2",
+          "document_id": "TRAVEL-NEW",
+          "version": "2026-01-01",
+          "fragment_id": "p1",
+          "quote": "北京住宿上限每晚650元。"
+        },
+        {
+          "citation_id": "C3",
+          "document_id": "TRAVEL-NEW",
+          "version": "2026-01-01",
+          "fragment_id": "p1",
+          "quote": "本制度替代 TRAVEL-OLD。"
+        },
+        {
+          "citation_id": "C4",
+          "document_id": "EXPENSE",
+          "version": "2026-02-01",
+          "fragment_id": "p1",
+          "quote": "差旅报销须提交发票、行程单及审批记录。"
+        }
+      ],
+      "gaps": [],
+      "verification": "structured_extractive",
+      "task_status": "completed"
+    },
+    "trace": {
+      "run_id": "0e7f90a0-6bc9-4855-95c8-d4df1a2ee854",
+      "timestamp": "2026-11-06T01:37:43.816067+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "上海和北京各住一晚，分别限额多少，报销要交哪些材料？",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "检索上海北京住宿限额及报销材料规定",
+            "query": "上海 北京 住宿费 限额 报销材料"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "title": "差旅住宿现行制度",
+                "scope": "全体员工境内差旅",
+                "status": "active",
+                "effective_date": "2026-01-01",
+                "supersedes": [
+                  "TRAVEL-OLD"
+                ],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。",
+                "score": 0.03278688524590164,
+                "ranking": {
+                  "0": {
+                    "rank": 1,
+                    "score": 4
+                  },
+                  "1": {
+                    "rank": 1,
+                    "score": 17.47057437035513
+                  }
+                }
+              },
+              {
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "title": "旧版差旅住宿",
+                "scope": "全体员工境内差旅",
+                "status": "retired",
+                "effective_date": "2024-01-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "上海住宿上限每晚500元。北京住宿上限每晚550元。",
+                "score": 0.03225806451612903,
+                "ranking": {
+                  "0": {
+                    "rank": 2,
+                    "score": 4
+                  },
+                  "1": {
+                    "rank": 2,
+                    "score": 17.208389617023116
+                  }
+                }
+              },
+              {
+                "document_id": "EXPENSE",
+                "version": "2026-02-01",
+                "title": "报销材料",
+                "scope": "全体员工",
+                "status": "active",
+                "effective_date": "2026-02-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "差旅报销须提交发票、行程单及审批记录。",
+                "score": 0.031746031746031744,
+                "ranking": {
+                  "0": {
+                    "rank": 3,
+                    "score": 3
+                  },
+                  "1": {
+                    "rank": 3,
+                    "score": 10.745778886752564
+                  }
+                }
+              },
+              {
+                "document_id": "RESOLUTION",
+                "version": "2026-04-01",
+                "title": "采购审批冲突优先关系说明",
+                "scope": "采购审批制度冲突",
+                "status": "active",
+                "effective_date": "2026-04-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "PROCUREMENT 与 FINANCE 均有效，范围相同，尚无优先关系或替代裁决；遇到冲突须向制度负责人取得书面确认。",
+                "score": 0.015625,
+                "ranking": {
+                  "1": {
+                    "rank": 4,
+                    "score": 1.6873334393652097
+                  }
+                }
+              },
+              {
+                "document_id": "DEVICE",
+                "version": "2025-05-01",
+                "title": "设备领用制度",
+                "scope": "全体员工",
+                "status": "active",
+                "effective_date": "2025-05-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "电脑设备领用须提交IT工单并由部门经理审批。",
+                "score": 0.015384615384615385,
+                "ranking": {
+                  "1": {
+                    "rank": 5,
+                    "score": 1.0948349611663233
+                  }
+                }
+              },
+              {
+                "document_id": "FINANCE",
+                "version": "2026-03-01",
+                "title": "采购审批财务付款制度",
+                "scope": "全体员工单笔采购一万至五万元",
+                "status": "active",
+                "effective_date": "2026-03-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "单笔采购一万至五万元必须同时经部门经理和财务总监审批。",
+                "score": 0.015151515151515152,
+                "ranking": {
+                  "1": {
+                    "rank": 6,
+                    "score": 1.0948349611663233
+                  }
+                }
+              }
+            ],
+            "total_candidates": 10,
+            "has_more": true,
+            "next_offset": 6,
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+            "related_candidates": [
+              {
+                "document_id": "PROCUREMENT",
+                "version": "2026-01-01",
+                "title": "采购审批制度",
+                "scope": "全体员工单笔采购一万至五万元",
+                "status": "active",
+                "effective_date": "2026-01-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "单笔采购一万至五万元仅需部门经理批准，无须财务总监审批。",
+                "score": 0.014705882352941176,
+                "ranking": {
+                  "1": {
+                    "rank": 8,
+                    "score": 1.0948349611663233
+                  }
+                }
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 838
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "read",
+            "purpose": "读取现行住宿限额条款原文",
+            "document_id": "TRAVEL-NEW",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "TRAVEL-NEW",
+              "title": "差旅住宿现行制度",
+              "version": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "status": "active",
+              "supersedes": [
+                "TRAVEL-OLD"
+              ],
+              "scope": "全体员工境内差旅"
+            },
+            "fragment_id": "p1",
+            "text": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+            "numeric_facts": [
+              {
+                "fact_id": "3af4bef8d128e018",
+                "document_id": "TRAVEL-NEW",
+                "fragment_id": "p1",
+                "version": "2026-01-01",
+                "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+                "source_quote": "上海住宿上限每晚600元。",
+                "span": [
+                  0,
+                  13
+                ],
+                "subject": "上海",
+                "attribute": "住宿上限",
+                "value": "600",
+                "unit": "元",
+                "basis": "每晚",
+                "scope": "全体员工境内差旅",
+                "effective_date": "2026-01-01",
+                "status": "active"
+              },
+              {
+                "fact_id": "5dd935923c979775",
+                "document_id": "TRAVEL-NEW",
+                "fragment_id": "p1",
+                "version": "2026-01-01",
+                "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+                "source_quote": "北京住宿上限每晚650元。",
+                "span": [
+                  13,
+                  26
+                ],
+                "subject": "北京",
+                "attribute": "住宿上限",
+                "value": "650",
+                "unit": "元",
+                "basis": "每晚",
+                "scope": "全体员工境内差旅",
+                "effective_date": "2026-01-01",
+                "status": "active"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 735
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "read",
+            "purpose": "读取报销材料规定原文",
+            "document_id": "EXPENSE",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "EXPENSE",
+              "title": "报销材料",
+              "version": "2026-02-01",
+              "effective_date": "2026-02-01",
+              "status": "active",
+              "supersedes": [],
+              "scope": "全体员工"
+            },
+            "fragment_id": "p1",
+            "text": "差旅报销须提交发票、行程单及审批记录。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+            "numeric_facts": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 967
+        },
+        {
+          "step": 4,
+          "action": {
+            "action": "finish",
+            "purpose": "依据现行制度回答住宿限额和报销材料",
+            "outcome": "answered",
+            "answer": "",
+            "citations": [
+              {
+                "citation_id": "C1",
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "上海住宿上限每晚600元。"
+              },
+              {
+                "citation_id": "C2",
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "北京住宿上限每晚650元。"
+              },
+              {
+                "citation_id": "C3",
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "本制度替代 TRAVEL-OLD。"
+              },
+              {
+                "citation_id": "C4",
+                "document_id": "EXPENSE",
+                "version": "2026-02-01",
+                "fragment_id": "p1",
+                "quote": "差旅报销须提交发票、行程单及审批记录。"
+              }
+            ],
+            "gaps": [],
+            "claims": [
+              {
+                "type": "quote",
+                "citation_id": "C1"
+              },
+              {
+                "type": "quote",
+                "citation_id": "C2"
+              },
+              {
+                "type": "replacement",
+                "citation_id": "C3",
+                "source_document_id": "TRAVEL-NEW",
+                "target_document_id": "TRAVEL-OLD"
+              },
+              {
+                "type": "quote",
+                "citation_id": "C4"
+              }
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "tool": "finish",
+            "verified_calculations": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 1515
+        }
+      ],
+      "result": {
+        "outcome": "answered",
+        "answer": "差旅住宿现行制度（TRAVEL-NEW，版本2026-01-01，范围全体员工境内差旅）：上海住宿上限每晚600元。[C1]\n差旅住宿现行制度（TRAVEL-NEW，版本2026-01-01，范围全体员工境内差旅）：北京住宿上限每晚650元。[C2]\nTRAVEL-NEW 替代 TRAVEL-OLD。[C3]\n报销材料（EXPENSE，版本2026-02-01，范围全体员工）：差旅报销须提交发票、行程单及审批记录。[C4]",
+        "citations": [
+          {
+            "citation_id": "C1",
+            "document_id": "TRAVEL-NEW",
+            "version": "2026-01-01",
+            "fragment_id": "p1",
+            "quote": "上海住宿上限每晚600元。"
+          },
+          {
+            "citation_id": "C2",
+            "document_id": "TRAVEL-NEW",
+            "version": "2026-01-01",
+            "fragment_id": "p1",
+            "quote": "北京住宿上限每晚650元。"
+          },
+          {
+            "citation_id": "C3",
+            "document_id": "TRAVEL-NEW",
+            "version": "2026-01-01",
+            "fragment_id": "p1",
+            "quote": "本制度替代 TRAVEL-OLD。"
+          },
+          {
+            "citation_id": "C4",
+            "document_id": "EXPENSE",
+            "version": "2026-02-01",
+            "fragment_id": "p1",
+            "quote": "差旅报销须提交发票、行程单及审批记录。"
+          }
+        ],
+        "gaps": [],
+        "verification": "structured_extractive",
+        "task_status": "completed"
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "business_envelope": true,
+    "result_matches_trace": true,
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "shanghai": true,
+    "beijing": true,
+    "expense_materials": true,
+    "replacement_claim_supported": true
+  },
+  "passed": true,
+  "elapsed_seconds": 4.057
+}

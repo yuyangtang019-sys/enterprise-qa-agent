@@ -1,0 +1,28 @@
+{
+  "purpose": "Pre-improvement source fingerprint; excludes secrets and unrelated projects",
+  "files": {
+    "data/knowledge.json": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+    "examples/http_selftest.py": "5087db7ca9ae14376e04d508e352b8da1c1a576c232cbb0056b251c2417ab454",
+    "examples/real_acceptance.py": "dc15820a7b50f1618c0bb6a8a384769cbb73cd37ebc115a41420252dd28882dc",
+    "src/enterprise_qa/__init__.py": "356bfc53044ec9b3efee86ed8079db66e16da4ec4a7436d3919bc089cf993357",
+    "src/enterprise_qa/agent.py": "3bb2d9055694dc586221cb98b03ff287e9211a0d99ec27afca71b114415d4bbe",
+    "src/enterprise_qa/cli.py": "03f854499e52f582bbc36cf0b37862156de5cb9951b1035197a8c920125f400d",
+    "src/enterprise_qa/config.py": "018f590369ffc2e8d9e822c3a6cce51f6c02274705fa856f423871901ee6c0ad",
+    "src/enterprise_qa/evidence.py": "89570540c332cd40c39edcd043b85a751b4ae9e910d273f79bc3777ef88aab3d",
+    "src/enterprise_qa/http_api.py": "f414346d09c0d6bcc641f82cfe8fda324fec3accc8a5755025894867165ef77c",
+    "src/enterprise_qa/knowledge.py": "529a12a14da62552ae6a422ba7f6e1638b8a2d187bfc8648ea4037c1ab731e2a",
+    "src/enterprise_qa/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/enterprise_qa/models/deepseek.py": "6fcc9155504ad46a1f8f8600c2e251a4c3773bd9b4a1f589b50962f10f6b3e9c",
+    "src/enterprise_qa/models/mock.py": "83d5538f5acc2461e5b13f6f871baee046c078fe5618e5348d28ff1cae1762b4",
+    "src/enterprise_qa/models/real.py": "58080eebb72c1bc6648d094d1d4b3334e28d21bd281cbab245703d3b2cb09553",
+    "src/enterprise_qa/protocol.py": "bf13892842e0fb6ace9af32c9b436565727aada966837a81c1b722ffa302b44b",
+    "src/enterprise_qa/session.py": "9c54b2a455456c3cf552bb40ff752746f7bc49678a82a8eb25ab2091bf132d21",
+    "src/enterprise_qa/tracing.py": "6239d41793bfae7dacdda6351dfa97f9939eebd8b00c19ff4b6bc2459f9a2da0",
+    "tests/test_agent.py": "bec395f4e2bc05d3aee2beeafafca50b2bb1268777895bfcdb879adb0a402bfa",
+    "tests/test_api.py": "200d1a7b58e8647a97f53fe15c95bba28403b08ce1ddd8bd78fa84b0d479684f",
+    "tests/test_deepseek.py": "901e15e85671c3d55dd6017ce35f38f406a4efabe682465128cef1cc54dcab62",
+    "tests/test_http.py": "c9ddc744355f1104dbc7129db487437d6db1e541dc90843c4fc5fa24c602c391"
+  },
+  "known_counterexample": "examples/requirements-audit/semantic-negative-control.json",
+  "unknown_only_selector_exit_code": 0
+}

@@ -1,0 +1,38 @@
+{
+  "run_id": "10597f04-9475-4918-b887-1692af06c29a",
+  "timestamp": "2026-11-04T08:57:43.958437+00:00",
+  "mode": "mock",
+  "provider": "offline simulator (NOT a language model)",
+  "model": "observation-driven-mock-v1",
+  "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+  "user_input": "住宿上限",
+  "max_steps": 8,
+  "history": [],
+  "steps": [
+    {
+      "step": 1,
+      "action": {
+        "action": "ask_user",
+        "purpose": "离线模拟：根据当前观察选择动作",
+        "question": "请问出差城市是上海还是北京？",
+        "reason": "需要城市以确认住宿限额。"
+      },
+      "observation": {
+        "ok": true,
+        "tool": "ask_user"
+      },
+      "attempts": 1,
+      "elapsed_ms": 0
+    }
+  ],
+  "result": {
+    "task_status": "awaiting_user",
+    "outcome": "insufficient_evidence",
+    "answer": "请问出差城市是上海还是北京？",
+    "citations": [],
+    "gaps": [
+      "需要城市以确认住宿限额。"
+    ]
+  },
+  "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+}

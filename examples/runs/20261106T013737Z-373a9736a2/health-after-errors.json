@@ -1,0 +1,21 @@
+{
+  "name": "health-after-errors",
+  "request": {
+    "method": "GET",
+    "path": "/health",
+    "body": null,
+    "raw_body_size": 0
+  },
+  "status": 200,
+  "response": {
+    "status": "ok",
+    "mode": "real",
+    "provider": "DeepSeek",
+    "test_mode": true
+  },
+  "checks": {
+    "http_status": true
+  },
+  "passed": true,
+  "elapsed_seconds": 0.001
+}

@@ -1,0 +1,18 @@
+{
+  "name": "content-type",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": "{}",
+    "raw_body_size": 2
+  },
+  "status": 415,
+  "response": {
+    "error": "application_json_required"
+  },
+  "checks": {
+    "http_status": true
+  },
+  "passed": true,
+  "elapsed_seconds": 0.001
+}

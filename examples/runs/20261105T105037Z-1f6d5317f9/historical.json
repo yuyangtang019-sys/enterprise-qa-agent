@@ -1,0 +1,334 @@
+{
+  "name": "historical",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "2024年6月上海出差每晚住宿上限多少？请按当时制度回答，不要套用现行标准。"
+    },
+    "raw_body_size": 120
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "outcome": "answered",
+      "answer": "旧版差旅住宿（TRAVEL-OLD，版本2024-01-01，范围全体员工境内差旅）：上海住宿上限每晚500元。[C1]",
+      "citations": [
+        {
+          "citation_id": "C1",
+          "document_id": "TRAVEL-OLD",
+          "version": "2024-01-01",
+          "fragment_id": "p1",
+          "quote": "上海住宿上限每晚500元。"
+        }
+      ],
+      "gaps": [
+        "缺少所问主题的制度资料。"
+      ],
+      "verification": "structured_extractive",
+      "task_status": "completed"
+    },
+    "trace": {
+      "run_id": "cacaaf7a-86dd-48ad-8a43-a378f5d8f43b",
+      "timestamp": "2026-11-05T10:52:15.424499+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "2024年6月上海出差每晚住宿上限多少？请按当时制度回答，不要套用现行标准。",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找2024年6月适用的上海出差住宿费标准制度",
+            "query": "上海 出差 住宿费 标准 2024年6月"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "title": "差旅住宿现行制度",
+                "scope": "全体员工境内差旅",
+                "status": "active",
+                "effective_date": "2026-01-01",
+                "supersedes": [
+                  "TRAVEL-OLD"
+                ],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。",
+                "score": 0.03278688524590164,
+                "ranking": {
+                  "0": {
+                    "rank": 1,
+                    "score": 2
+                  },
+                  "1": {
+                    "rank": 1,
+                    "score": 20.026273543541596
+                  }
+                }
+              },
+              {
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "title": "旧版差旅住宿",
+                "scope": "全体员工境内差旅",
+                "status": "retired",
+                "effective_date": "2024-01-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "上海住宿上限每晚500元。北京住宿上限每晚550元。",
+                "score": 0.03225806451612903,
+                "ranking": {
+                  "0": {
+                    "rank": 2,
+                    "score": 2
+                  },
+                  "1": {
+                    "rank": 2,
+                    "score": 16.73037629664452
+                  }
+                }
+              },
+              {
+                "document_id": "LEAVE",
+                "version": "2025-01-01",
+                "title": "年假制度",
+                "scope": "全职员工",
+                "status": "active",
+                "effective_date": "2025-01-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "入职满一年员工每年享有五天年假。申请须经直属主管批准。",
+                "score": 0.015873015873015872,
+                "ranking": {
+                  "1": {
+                    "rank": 3,
+                    "score": 6.0602839087225755
+                  }
+                }
+              },
+              {
+                "document_id": "SCOPE",
+                "version": "2026-06-01",
+                "title": "知识库范围说明",
+                "scope": "知识问答",
+                "status": "active",
+                "effective_date": "2026-06-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "本合成知识库涵盖差旅、年假、采购、设备和安全制度；其他福利请咨询人力资源部门。",
+                "score": 0.015625,
+                "ranking": {
+                  "1": {
+                    "rank": 4,
+                    "score": 3.6597843186278602
+                  }
+                }
+              },
+              {
+                "document_id": "PROCUREMENT",
+                "version": "2026-01-01",
+                "title": "采购审批制度",
+                "scope": "全体员工单笔采购一万至五万元",
+                "status": "active",
+                "effective_date": "2026-01-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "单笔采购一万至五万元仅需部门经理批准，无须财务总监审批。",
+                "score": 0.015384615384615385,
+                "ranking": {
+                  "1": {
+                    "rank": 5,
+                    "score": 2.5611720299597502
+                  }
+                }
+              },
+              {
+                "document_id": "EXPENSE",
+                "version": "2026-02-01",
+                "title": "报销材料",
+                "scope": "全体员工",
+                "status": "active",
+                "effective_date": "2026-02-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "差旅报销须提交发票、行程单及审批记录。",
+                "score": 0.015151515151515152,
+                "ranking": {
+                  "1": {
+                    "rank": 6,
+                    "score": 2.193447249834433
+                  }
+                }
+              }
+            ],
+            "total_candidates": 10,
+            "has_more": true,
+            "next_offset": 6,
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+          },
+          "attempts": 1,
+          "elapsed_ms": 1103
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "read",
+            "purpose": "读取旧版差旅制度原文以确认2024年6月上海住宿上限",
+            "document_id": "TRAVEL-OLD",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "TRAVEL-OLD",
+              "title": "旧版差旅住宿",
+              "version": "2024-01-01",
+              "effective_date": "2024-01-01",
+              "status": "retired",
+              "supersedes": [],
+              "scope": "全体员工境内差旅"
+            },
+            "fragment_id": "p1",
+            "text": "上海住宿上限每晚500元。北京住宿上限每晚550元。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+            "numeric_facts": [
+              {
+                "fact_id": "6644acde82310340",
+                "document_id": "TRAVEL-OLD",
+                "fragment_id": "p1",
+                "version": "2024-01-01",
+                "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+                "source_quote": "上海住宿上限每晚500元。",
+                "span": [
+                  0,
+                  13
+                ],
+                "subject": "上海",
+                "attribute": "住宿上限",
+                "value": "500",
+                "unit": "元",
+                "basis": "每晚",
+                "scope": "全体员工境内差旅",
+                "effective_date": "2024-01-01",
+                "status": "retired"
+              },
+              {
+                "fact_id": "f81e1cd1cc208fde",
+                "document_id": "TRAVEL-OLD",
+                "fragment_id": "p1",
+                "version": "2024-01-01",
+                "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+                "source_quote": "北京住宿上限每晚550元。",
+                "span": [
+                  13,
+                  26
+                ],
+                "subject": "北京",
+                "attribute": "住宿上限",
+                "value": "550",
+                "unit": "元",
+                "basis": "每晚",
+                "scope": "全体员工境内差旅",
+                "effective_date": "2024-01-01",
+                "status": "retired"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 971
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "finish",
+            "purpose": "依据2024年适用的旧版差旅制度回答上海住宿上限",
+            "outcome": "answered",
+            "answer": "",
+            "citations": [
+              {
+                "citation_id": "C1",
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "fragment_id": "p1",
+                "quote": "上海住宿上限每晚500元。"
+              }
+            ],
+            "gaps": [
+              "missing_policy"
+            ],
+            "claims": [
+              {
+                "type": "quote",
+                "citation_id": "C1"
+              }
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "tool": "finish",
+            "verified_calculations": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 1045
+        }
+      ],
+      "result": {
+        "outcome": "answered",
+        "answer": "旧版差旅住宿（TRAVEL-OLD，版本2024-01-01，范围全体员工境内差旅）：上海住宿上限每晚500元。[C1]",
+        "citations": [
+          {
+            "citation_id": "C1",
+            "document_id": "TRAVEL-OLD",
+            "version": "2024-01-01",
+            "fragment_id": "p1",
+            "quote": "上海住宿上限每晚500元。"
+          }
+        ],
+        "gaps": [
+          "缺少所问主题的制度资料。"
+        ],
+        "verification": "structured_extractive",
+        "task_status": "completed"
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "business_envelope": true,
+    "result_matches_trace": true,
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "time_scope": true
+  },
+  "passed": true,
+  "elapsed_seconds": 3.147
+}

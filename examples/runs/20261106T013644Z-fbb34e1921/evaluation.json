@@ -1,0 +1,27 @@
+{
+  "mode": "real",
+  "started_unix": 1793929004.2725017,
+  "elapsed_seconds": 5.529,
+  "count": 1,
+  "passed": 1,
+  "cases": [
+    {
+      "name": "mixed",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "known_part": true,
+        "unknown_part": true
+      }
+    }
+  ]
+}

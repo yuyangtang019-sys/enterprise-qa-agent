@@ -1,0 +1,232 @@
+{
+  "name": "paraphrase",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "到上海办事住旅馆，单夜最多可报多少？"
+    },
+    "raw_body_size": 70
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "outcome": "answered",
+      "answer": "按现行差旅住宿制度（2026-01-01起施行），到上海出差住宿单晚上限为600元。[C1]该制度明确替代旧版制度，旧版不再适用。[C2]",
+      "citations": [
+        {
+          "citation_id": "C1",
+          "document_id": "TRAVEL-NEW",
+          "version": "2026-01-01",
+          "fragment_id": "p1",
+          "quote": "上海住宿上限每晚600元。"
+        },
+        {
+          "citation_id": "C2",
+          "document_id": "TRAVEL-NEW",
+          "version": "2026-01-01",
+          "fragment_id": "p1",
+          "quote": "本制度替代 TRAVEL-OLD。"
+        }
+      ],
+      "gaps": [],
+      "task_status": "completed"
+    },
+    "trace": {
+      "run_id": "58451d50-2534-4ccd-931b-6d03e3a1d7f0",
+      "timestamp": "2026-11-04T10:23:23.342763+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "到上海办事住旅馆，单夜最多可报多少？",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找上海差旅住宿费报销标准",
+            "query": "上海 住宿费 标准 单夜 限额 报销"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "title": "差旅住宿现行制度",
+                "score": 3,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "差旅住宿现行制度 上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+              },
+              {
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "title": "旧版差旅住宿",
+                "score": 3,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "旧版差旅住宿 上海住宿上限每晚500元。北京住宿上限每晚550元。"
+              },
+              {
+                "document_id": "EXPENSE",
+                "version": "2026-02-01",
+                "title": "报销材料",
+                "score": 1,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "报销材料 差旅报销须提交发票、行程单及审批记录。"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 959
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "read",
+            "purpose": "核实上海住宿上限原文及制度适用",
+            "document_id": "TRAVEL-NEW",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "TRAVEL-NEW",
+              "title": "差旅住宿现行制度",
+              "version": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "status": "active",
+              "supersedes": [
+                "TRAVEL-OLD"
+              ],
+              "scope": "全体员工境内差旅"
+            },
+            "fragment_id": "p1",
+            "text": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+          },
+          "attempts": 1,
+          "elapsed_ms": 967
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "finish",
+            "purpose": "依据现行制度原文给出上海住宿单夜上限",
+            "outcome": "answered",
+            "answer": "按现行差旅住宿制度（2026-01-01起施行，替代旧版制度），到上海出差住宿单晚上限为600元。[C1]",
+            "citations": [
+              {
+                "citation_id": "C1",
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "上海住宿上限每晚600元。"
+              }
+            ],
+            "gaps": []
+          },
+          "observation": {
+            "ok": false,
+            "tool": "validation",
+            "error": {
+              "code": "replacement_claim_needs_replacement_quote",
+              "message": "replacement_claim_needs_replacement_quote",
+              "retryable": false
+            }
+          },
+          "attempts": 1,
+          "elapsed_ms": 1325
+        },
+        {
+          "step": 4,
+          "action": {
+            "action": "finish",
+            "purpose": "依据现行制度原文给出上海住宿单夜上限并完整引用替代关系",
+            "outcome": "answered",
+            "answer": "按现行差旅住宿制度（2026-01-01起施行），到上海出差住宿单晚上限为600元。[C1]该制度明确替代旧版制度，旧版不再适用。[C2]",
+            "citations": [
+              {
+                "citation_id": "C1",
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "上海住宿上限每晚600元。"
+              },
+              {
+                "citation_id": "C2",
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "本制度替代 TRAVEL-OLD。"
+              }
+            ],
+            "gaps": []
+          },
+          "observation": {
+            "ok": true,
+            "tool": "finish",
+            "verified_calculations": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 2307
+        }
+      ],
+      "result": {
+        "outcome": "answered",
+        "answer": "按现行差旅住宿制度（2026-01-01起施行），到上海出差住宿单晚上限为600元。[C1]该制度明确替代旧版制度，旧版不再适用。[C2]",
+        "citations": [
+          {
+            "citation_id": "C1",
+            "document_id": "TRAVEL-NEW",
+            "version": "2026-01-01",
+            "fragment_id": "p1",
+            "quote": "上海住宿上限每晚600元。"
+          },
+          {
+            "citation_id": "C2",
+            "document_id": "TRAVEL-NEW",
+            "version": "2026-01-01",
+            "fragment_id": "p1",
+            "quote": "本制度替代 TRAVEL-OLD。"
+          }
+        ],
+        "gaps": [],
+        "task_status": "completed"
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "business_envelope": true,
+    "result_matches_trace": true,
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "amount_in_answer": true,
+    "amount_in_quote": true,
+    "current_doc": true,
+    "fake_history_not_adopted": true,
+    "answered": true,
+    "replacement_claim_supported": true
+  },
+  "passed": true,
+  "elapsed_seconds": 5.579
+}

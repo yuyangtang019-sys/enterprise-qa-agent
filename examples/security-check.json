@@ -1,0 +1,10 @@
+{
+  "files_checked": 231,
+  "configured_secret_occurrences": 0,
+  "affected_files": [],
+  "config_excluded_from_scan": true,
+  "note": "Programmatic equality comparison only; no credential values stored or printed.",
+  "staged_files_checked": 237,
+  "staged_config_file_present": false,
+  "staged_configured_secret_occurrences": 0
+}

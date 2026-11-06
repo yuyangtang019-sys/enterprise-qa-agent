@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-04",
+  "engineering_tests": {
+    "passed": 43,
+    "total": 43,
+    "report": "examples/test-results.txt"
+  },
+  "real_cli": {
+    "passed": 8,
+    "total": 8,
+    "report": "examples\\real\\evaluation.json"
+  },
+  "real_http": {
+    "passed": 39,
+    "total": 39,
+    "elapsed_seconds": 100.661,
+    "report": "examples/http/evaluation.json"
+  },
+  "provider": "DeepSeek Chat Completions",
+  "requested_model": "DeepSeek-V4.1-Flash-1017",
+  "api_model": "deepseek-flash",
+  "response_model": "deepseek-flash",
+  "secret_scan_occurrences": 0,
+  "required_files_present": true,
+  "git_commit": null,
+  "git_note": "Commit failed: author identity unknown. No global identity change; no push.",
+  "limitations": [
+    "Service alias does not pin backend weights",
+    "Finite semantic checks are not a general entailment proof",
+    "Loopback API has no authentication, serial processing, and in-memory sessions",
+    "Candidate personal contribution/time awaits candidate input"
+  ]
+}

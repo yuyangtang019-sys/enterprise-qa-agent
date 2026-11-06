@@ -1,0 +1,18 @@
+{
+  "name": "invalid-json",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": "{",
+    "raw_body_size": 1
+  },
+  "status": 400,
+  "response": {
+    "error": "invalid_request"
+  },
+  "checks": {
+    "http_status": true
+  },
+  "passed": true,
+  "elapsed_seconds": 0.019
+}

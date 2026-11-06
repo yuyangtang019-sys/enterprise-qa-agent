@@ -1,0 +1,22 @@
+{
+  "kind": "http",
+  "status": "completed",
+  "requested": [
+    "mixed"
+  ],
+  "expanded": [
+    "mixed"
+  ],
+  "executed": [
+    "mixed"
+  ],
+  "skipped": [],
+  "mode": "real",
+  "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+  "model": "deepseek-flash",
+  "max_steps": 12,
+  "total": 1,
+  "passed": 1,
+  "business_cases": 1,
+  "protocol_probes": 0
+}

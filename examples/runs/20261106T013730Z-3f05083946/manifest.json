@@ -1,0 +1,27 @@
+{
+  "kind": "retrieval-stress",
+  "status": "completed",
+  "requested": [
+    "permutation-0",
+    "permutation-1",
+    "permutation-2",
+    "real-conflict"
+  ],
+  "expanded": [],
+  "executed": [
+    "permutation-0",
+    "permutation-1",
+    "permutation-2",
+    "real-conflict"
+  ],
+  "skipped": [],
+  "mode": "real",
+  "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+  "model": "deepseek-flash",
+  "max_steps": 12,
+  "total": 4,
+  "passed": 4,
+  "business_cases": 1,
+  "protocol_probes": 0,
+  "offline_checks": 3
+}

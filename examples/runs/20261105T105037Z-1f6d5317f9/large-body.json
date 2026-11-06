@@ -1,0 +1,18 @@
+{
+  "name": "large-body",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "raw_body_size": 32769
+  },
+  "status": 413,
+  "response": {
+    "error": "body_limit"
+  },
+  "checks": {
+    "http_status": true
+  },
+  "passed": true,
+  "elapsed_seconds": 0.001
+}

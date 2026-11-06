@@ -1,0 +1,63 @@
+{
+  "mode": "real",
+  "purpose": "Independent exact reference example and replaced-document audit",
+  "results": [
+    {
+      "name": "reference-conflict",
+      "expected": "conflict_unresolved",
+      "actual": "conflict_unresolved",
+      "status": "completed",
+      "passed": true,
+      "path": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "answer": "知识库中存在两份均处于有效状态、适用范围同为“全体员工费用报销”的制度，但规定的报销期限不一致：D01（2026-01-01生效）规定“报销期限为30天”[C1]；D02（2026-03-01生效）规定“报销期限为15天”[C2]。两份文件均未声明废止或替代对方（supersedes 均为空），仅凭生效日期新旧无法确定优先适用关系，因此无法给出唯一的报销期限。",
+      "gaps": [
+        "两份制度均有效且适用范围重叠，未明确替代或优先适用关系，需确认实际执行的是30天还是15天",
+        "未明确报销期限的起算时点（如费用发生日、发票开具日或提交日）"
+      ],
+      "response_model": "deepseek-flash"
+    },
+    {
+      "name": "reference-single",
+      "expected": "answered",
+      "actual": "answered",
+      "status": "completed",
+      "passed": true,
+      "path": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "answer": "根据《报销期限制度D01》（适用于全体员工费用报销），报销期限为30天[C1]。",
+      "gaps": [
+        "原文未说明30天的起算时点（如费用发生日或票据日期）",
+        "原文未说明逾期报销的处理方式或例外情形"
+      ],
+      "response_model": "deepseek-flash"
+    },
+    {
+      "name": "reference-replaced",
+      "expected": "answered",
+      "actual": "answered",
+      "status": "completed",
+      "passed": true,
+      "path": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "answer": "报销期限为45天。[C1]",
+      "gaps": [
+        "未说明45天的起算时点（如费用发生日或发票日期）",
+        "未说明超期后的处理方式或是否存在例外审批"
+      ],
+      "response_model": "deepseek-flash"
+    }
+  ],
+  "passed": 3,
+  "total": 3
+}

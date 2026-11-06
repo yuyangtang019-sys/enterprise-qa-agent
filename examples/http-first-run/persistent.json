@@ -1,0 +1,149 @@
+{
+  "name": "persistent",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "远程VPN是否必须启用双因素认证？",
+      "fault": {
+        "document_id": "SECURITY",
+        "count": -1
+      }
+    },
+    "raw_body_size": 112
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "outcome": "tool_failure",
+      "answer": "暂无法确认远程VPN是否必须启用双因素认证：检索到相关制度条目，但所需的原文片段两次读取均因工具不可用而失败，无法提供原文引用作为证据。",
+      "citations": [],
+      "gaps": [
+        "SECURITY 文档 p1 片段原文因读取工具故障不可用，无法核验“远程VPN必须启用双因素认证”的原文表述及适用范围"
+      ],
+      "task_status": "incomplete"
+    },
+    "trace": {
+      "run_id": "acabde98-d657-4f8d-a089-9c4d849b4a37",
+      "timestamp": "2026-11-04T09:10:02.890031+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "远程VPN是否必须启用双因素认证？",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找远程VPN双因素认证相关制度",
+            "query": "远程VPN 双因素认证 要求"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "SECURITY",
+                "version": "2026-01-01",
+                "title": "远程双因素认证",
+                "score": 7,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "远程双因素认证 远程访问VPN必须启用双因素认证，遗失认证设备请联系IT服务台。"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 1003
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "read",
+            "purpose": "读取制度原文确认VPN双因素认证是否强制",
+            "document_id": "SECURITY",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": false,
+            "tool": "read",
+            "error": {
+              "code": "injected_unavailable",
+              "message": "injected_unavailable",
+              "retryable": true
+            }
+          },
+          "attempts": 1,
+          "elapsed_ms": 971
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "read",
+            "purpose": "重试读取原文以核实VPN双因素认证的强制要求",
+            "document_id": "SECURITY",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": false,
+            "tool": "read",
+            "error": {
+              "code": "injected_unavailable",
+              "message": "injected_unavailable",
+              "retryable": true
+            }
+          },
+          "attempts": 1,
+          "elapsed_ms": 1016
+        },
+        {
+          "step": 4,
+          "action": {
+            "action": "finish",
+            "purpose": "原文读取连续失败，无法提供可核验引用",
+            "outcome": "tool_failure",
+            "answer": "暂无法确认远程VPN是否必须启用双因素认证：检索到相关制度条目，但所需的原文片段两次读取均因工具不可用而失败，无法提供原文引用作为证据。",
+            "citations": [],
+            "gaps": [
+              "SECURITY 文档 p1 片段原文因读取工具故障不可用，无法核验“远程VPN必须启用双因素认证”的原文表述及适用范围"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "tool": "finish"
+          },
+          "attempts": 1,
+          "elapsed_ms": 1328
+        }
+      ],
+      "result": {
+        "outcome": "tool_failure",
+        "answer": "暂无法确认远程VPN是否必须启用双因素认证：检索到相关制度条目，但所需的原文片段两次读取均因工具不可用而失败，无法提供原文引用作为证据。",
+        "citations": [],
+        "gaps": [
+          "SECURITY 文档 p1 片段原文因读取工具故障不可用，无法核验“远程VPN必须启用双因素认证”的原文表述及适用范围"
+        ],
+        "task_status": "incomplete"
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "real_mode": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "failure_observed": true,
+    "incomplete": true,
+    "failure_status": true,
+    "no_unsupported_answer": true
+  },
+  "passed": true,
+  "elapsed_seconds": 4.338
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "cli",
+  "status": "completed",
+  "requested": [],
+  "expanded": [],
+  "executed": [
+    "normal",
+    "conflict",
+    "outside",
+    "paraphrase",
+    "followup",
+    "tool-retry",
+    "tool-failure",
+    "mutation"
+  ],
+  "skipped": [],
+  "mode": "real",
+  "total": 8,
+  "passed": 8,
+  "business_cases": 8,
+  "protocol_probes": 0
+}

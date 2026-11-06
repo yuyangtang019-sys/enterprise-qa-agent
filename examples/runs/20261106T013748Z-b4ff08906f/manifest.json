@@ -1,0 +1,43 @@
+{
+  "kind": "cli",
+  "status": "completed",
+  "requested": [
+    "normal",
+    "conflict",
+    "outside",
+    "paraphrase",
+    "followup",
+    "tool-retry",
+    "tool-failure",
+    "mutation"
+  ],
+  "expanded": [
+    "normal",
+    "conflict",
+    "outside",
+    "paraphrase",
+    "followup",
+    "tool-retry",
+    "tool-failure",
+    "mutation"
+  ],
+  "executed": [
+    "normal",
+    "conflict",
+    "outside",
+    "paraphrase",
+    "followup",
+    "tool-retry",
+    "tool-failure",
+    "mutation"
+  ],
+  "skipped": [],
+  "mode": "real",
+  "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+  "model": "deepseek-flash",
+  "max_steps": 12,
+  "total": 8,
+  "passed": 8,
+  "business_cases": 8,
+  "protocol_probes": 0
+}

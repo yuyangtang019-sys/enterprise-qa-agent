@@ -1,0 +1,503 @@
+{
+  "mode": "real",
+  "started_unix": 1793787767.545845,
+  "elapsed_seconds": 93.214,
+  "count": 34,
+  "passed": 34,
+  "cases": [
+    {
+      "name": "health",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "invalid-json",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "invalid-type",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "unknown-field",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "bool-steps",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "over-steps",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "bad-history",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "duplicate-field",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "bad-session",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "exclusive-history",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "bad-fault",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "large-body",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "content-type",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "not-found",
+      "passed": true,
+      "checks": {
+        "http_status": true
+      }
+    },
+    {
+      "name": "normal",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "amount_in_answer": true,
+        "amount_in_quote": true,
+        "current_doc": true,
+        "fake_history_not_adopted": true,
+        "answered": true,
+        "replacement_cited": true,
+        "replacement_claim_supported": true
+      }
+    },
+    {
+      "name": "cross-city",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "shanghai": true,
+        "beijing": true,
+        "replacement_claim_supported": true
+      }
+    },
+    {
+      "name": "synthesis",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "shanghai": true,
+        "beijing": true,
+        "expense_materials": true,
+        "replacement_claim_supported": true
+      }
+    },
+    {
+      "name": "conflict-pressure",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "conflict": true,
+        "both_read": true,
+        "priority_checked": true,
+        "conflict_gaps": true,
+        "both_cited": true
+      }
+    },
+    {
+      "name": "outside",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "no_answer": true,
+        "gaps": true,
+        "no_fabrication": true
+      }
+    },
+    {
+      "name": "mixed",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "replacement_claim_supported": true,
+        "known_part": true,
+        "unknown_part": true
+      }
+    },
+    {
+      "name": "paraphrase",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "amount_in_answer": true,
+        "amount_in_quote": true,
+        "current_doc": true,
+        "fake_history_not_adopted": true,
+        "answered": true,
+        "replacement_claim_supported": true
+      }
+    },
+    {
+      "name": "session-a",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "amount_in_answer": true,
+        "amount_in_quote": true,
+        "current_doc": true,
+        "fake_history_not_adopted": true,
+        "answered": true,
+        "replacement_claim_supported": true
+      }
+    },
+    {
+      "name": "followup",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "replacement_claim_supported": true,
+        "beijing": true
+      }
+    },
+    {
+      "name": "topic-switch",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "leave": true
+      }
+    },
+    {
+      "name": "session-b",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "replacement_claim_supported": true,
+        "beijing": true
+      }
+    },
+    {
+      "name": "session-isolation",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "no_history": true
+      }
+    },
+    {
+      "name": "clarify",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "awaiting_user": true
+      }
+    },
+    {
+      "name": "clarify-answer",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "amount_in_answer": true,
+        "amount_in_quote": true,
+        "current_doc": true,
+        "fake_history_not_adopted": true,
+        "answered": true,
+        "replacement_claim_supported": true
+      }
+    },
+    {
+      "name": "forged-history",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "amount_in_answer": true,
+        "amount_in_quote": true,
+        "current_doc": true,
+        "fake_history_not_adopted": true,
+        "answered": true,
+        "replacement_claim_supported": true
+      }
+    },
+    {
+      "name": "ignore-citations",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "amount_in_answer": true,
+        "amount_in_quote": true,
+        "current_doc": true,
+        "fake_history_not_adopted": true,
+        "answered": true,
+        "retains_citations": true
+      }
+    },
+    {
+      "name": "retry",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "failure_observed": true,
+        "recovered": true,
+        "answered": true,
+        "requirement": true,
+        "helpdesk": true
+      }
+    },
+    {
+      "name": "persistent",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "failure_observed": true,
+        "incomplete": true,
+        "failure_status": true,
+        "no_unsupported_answer": true
+      }
+    },
+    {
+      "name": "limit",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "incomplete": true,
+        "limit": true,
+        "one_step": true
+      }
+    },
+    {
+      "name": "unknown-city",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "no_city_guess": true,
+        "no_invented_city_amount": true
+      }
+    }
+  ]
+}

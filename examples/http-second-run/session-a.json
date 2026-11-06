@@ -1,0 +1,170 @@
+{
+  "name": "session-a",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "上海出差住宿限额？",
+      "session_id": "a"
+    },
+    "raw_body_size": 62
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "outcome": "answered",
+      "answer": "按现行差旅住宿制度（版本2026-01-01，状态有效，适用于全体员工境内差旅），上海住宿上限为每晚600元[C1]；该制度明确替代旧版制度[C1]。",
+      "citations": [
+        {
+          "citation_id": "C1",
+          "document_id": "TRAVEL-NEW",
+          "version": "2026-01-01",
+          "fragment_id": "p1",
+          "quote": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+        }
+      ],
+      "gaps": [
+        "未涵盖特殊职级、淡旺季浮动、发票与超标审批等例外规则"
+      ],
+      "task_status": "completed"
+    },
+    "trace": {
+      "run_id": "b7bb6e02-a27d-472c-9e0c-3f23515ba4b2",
+      "timestamp": "2026-11-04T09:11:39.059400+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "上海出差住宿限额？",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找上海出差住宿限额标准",
+            "query": "上海 出差 住宿 限额"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "title": "差旅住宿现行制度",
+                "score": 2,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "差旅住宿现行制度 上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+              },
+              {
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "title": "旧版差旅住宿",
+                "score": 2,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "旧版差旅住宿 上海住宿上限每晚500元。北京住宿上限每晚550元。"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 772
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "read",
+            "purpose": "读取现行制度中上海住宿限额原文",
+            "document_id": "TRAVEL-NEW",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "TRAVEL-NEW",
+              "title": "差旅住宿现行制度",
+              "version": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "status": "active",
+              "supersedes": [
+                "TRAVEL-OLD"
+              ],
+              "scope": "全体员工境内差旅"
+            },
+            "fragment_id": "p1",
+            "text": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+          },
+          "attempts": 1,
+          "elapsed_ms": 776
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "finish",
+            "purpose": "依据现行制度原文回答上海出差住宿限额",
+            "outcome": "answered",
+            "answer": "按现行差旅住宿制度（版本2026-01-01，状态有效，适用于全体员工境内差旅），上海住宿上限为每晚600元[C1]；该制度明确替代旧版制度[C1]。",
+            "citations": [
+              {
+                "citation_id": "C1",
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+              }
+            ],
+            "gaps": [
+              "未涵盖特殊职级、淡旺季浮动、发票与超标审批等例外规则"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "tool": "finish"
+          },
+          "attempts": 1,
+          "elapsed_ms": 1838
+        }
+      ],
+      "result": {
+        "outcome": "answered",
+        "answer": "按现行差旅住宿制度（版本2026-01-01，状态有效，适用于全体员工境内差旅），上海住宿上限为每晚600元[C1]；该制度明确替代旧版制度[C1]。",
+        "citations": [
+          {
+            "citation_id": "C1",
+            "document_id": "TRAVEL-NEW",
+            "version": "2026-01-01",
+            "fragment_id": "p1",
+            "quote": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+          }
+        ],
+        "gaps": [
+          "未涵盖特殊职级、淡旺季浮动、发票与超标审批等例外规则"
+        ],
+        "task_status": "completed"
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "real_mode": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "amount_in_answer": true,
+    "amount_in_quote": true,
+    "current_doc": true,
+    "fake_history_not_adopted": true,
+    "answered": true
+  },
+  "passed": true,
+  "elapsed_seconds": 3.388
+}

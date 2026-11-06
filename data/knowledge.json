@@ -1,0 +1,124 @@
+[
+  {
+    "document_id": "TRAVEL-OLD",
+    "title": "旧版差旅住宿",
+    "version": "2024-01-01",
+    "effective_date": "2024-01-01",
+    "status": "retired",
+    "supersedes": [],
+    "scope": "全体员工境内差旅",
+    "fragments": {
+      "p1": "上海住宿上限每晚500元。北京住宿上限每晚550元。"
+    }
+  },
+  {
+    "document_id": "TRAVEL-NEW",
+    "title": "差旅住宿现行制度",
+    "version": "2026-01-01",
+    "effective_date": "2026-01-01",
+    "status": "active",
+    "supersedes": [
+      "TRAVEL-OLD"
+    ],
+    "scope": "全体员工境内差旅",
+    "fragments": {
+      "p1": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+    }
+  },
+  {
+    "document_id": "EXPENSE",
+    "title": "报销材料",
+    "version": "2026-02-01",
+    "effective_date": "2026-02-01",
+    "status": "active",
+    "supersedes": [],
+    "scope": "全体员工",
+    "fragments": {
+      "p1": "差旅报销须提交发票、行程单及审批记录。"
+    }
+  },
+  {
+    "document_id": "LEAVE",
+    "title": "年假制度",
+    "version": "2025-01-01",
+    "effective_date": "2025-01-01",
+    "status": "active",
+    "supersedes": [],
+    "scope": "全职员工",
+    "fragments": {
+      "p1": "入职满一年员工每年享有五天年假。申请须经直属主管批准。"
+    }
+  },
+  {
+    "document_id": "SECURITY",
+    "title": "远程双因素认证",
+    "version": "2026-01-01",
+    "effective_date": "2026-01-01",
+    "status": "active",
+    "supersedes": [],
+    "scope": "全部远程账号",
+    "fragments": {
+      "p1": "远程访问VPN必须启用双因素认证，遗失认证设备请联系IT服务台。"
+    }
+  },
+  {
+    "document_id": "PROCUREMENT",
+    "title": "采购审批制度",
+    "version": "2026-01-01",
+    "effective_date": "2026-01-01",
+    "status": "active",
+    "supersedes": [],
+    "scope": "全体员工单笔采购一万至五万元",
+    "fragments": {
+      "p1": "单笔采购一万至五万元仅需部门经理批准，无须财务总监审批。"
+    }
+  },
+  {
+    "document_id": "FINANCE",
+    "title": "采购审批财务付款制度",
+    "version": "2026-03-01",
+    "effective_date": "2026-03-01",
+    "status": "active",
+    "supersedes": [],
+    "scope": "全体员工单笔采购一万至五万元",
+    "fragments": {
+      "p1": "单笔采购一万至五万元必须同时经部门经理和财务总监审批。"
+    }
+  },
+  {
+    "document_id": "RESOLUTION",
+    "title": "采购审批冲突优先关系说明",
+    "version": "2026-04-01",
+    "effective_date": "2026-04-01",
+    "status": "active",
+    "supersedes": [],
+    "scope": "采购审批制度冲突",
+    "fragments": {
+      "p1": "PROCUREMENT 与 FINANCE 均有效，范围相同，尚无优先关系或替代裁决；遇到冲突须向制度负责人取得书面确认。"
+    }
+  },
+  {
+    "document_id": "DEVICE",
+    "title": "设备领用制度",
+    "version": "2025-05-01",
+    "effective_date": "2025-05-01",
+    "status": "active",
+    "supersedes": [],
+    "scope": "全体员工",
+    "fragments": {
+      "p1": "电脑设备领用须提交IT工单并由部门经理审批。"
+    }
+  },
+  {
+    "document_id": "SCOPE",
+    "title": "知识库范围说明",
+    "version": "2026-06-01",
+    "effective_date": "2026-06-01",
+    "status": "active",
+    "supersedes": [],
+    "scope": "知识问答",
+    "fragments": {
+      "p1": "本合成知识库涵盖差旅、年假、采购、设备和安全制度；其他福利请咨询人力资源部门。"
+    }
+  }
+]

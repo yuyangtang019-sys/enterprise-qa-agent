@@ -1,0 +1,76 @@
+{
+  "run_id": "94cdb5bd-d4f0-4d63-a923-7f55643bf89b",
+  "timestamp": "2026-11-04T09:06:25.030882+00:00",
+  "mode": "real",
+  "provider": "DeepSeek Chat Completions",
+  "model": "deepseek-flash",
+  "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+  "user_input": "生育津贴有多少？",
+  "max_steps": 12,
+  "history": [],
+  "steps": [
+    {
+      "step": 1,
+      "action": {
+        "action": "search",
+        "purpose": "查找公司/属地生育津贴政策与金额标准",
+        "query": "生育津贴 标准 金额"
+      },
+      "observation": {
+        "ok": true,
+        "tool": "search",
+        "hits": []
+      },
+      "attempts": 1,
+      "elapsed_ms": 1012
+    },
+    {
+      "step": 2,
+      "action": {
+        "action": "search",
+        "purpose": "改写关键词查找生育保险相关制度文档",
+        "query": "生育保险 待遇 津贴 产假"
+      },
+      "observation": {
+        "ok": true,
+        "tool": "search",
+        "hits": []
+      },
+      "attempts": 1,
+      "elapsed_ms": 937
+    },
+    {
+      "step": 3,
+      "action": {
+        "action": "finish",
+        "purpose": "检索无结果，无法给出津贴金额",
+        "outcome": "insufficient_evidence",
+        "answer": "目前的知识库中未检索到生育津贴的相关制度或标准，因此无法确认具体金额。生育津贴通常与所在地区社保政策及本人缴费基数、产假天数相关，建议补充您所在的城市/参保地或公司相关制度名称，以便进一步查找。",
+        "citations": [],
+        "gaps": [
+          "缺少生育津贴金额标准的制度文档",
+          "缺少用户参保地/适用政策范围信息"
+        ]
+      },
+      "observation": {
+        "ok": true,
+        "tool": "finish"
+      },
+      "attempts": 1,
+      "elapsed_ms": 1748
+    }
+  ],
+  "result": {
+    "outcome": "insufficient_evidence",
+    "answer": "目前的知识库中未检索到生育津贴的相关制度或标准，因此无法确认具体金额。生育津贴通常与所在地区社保政策及本人缴费基数、产假天数相关，建议补充您所在的城市/参保地或公司相关制度名称，以便进一步查找。",
+    "citations": [],
+    "gaps": [
+      "缺少生育津贴金额标准的制度文档",
+      "缺少用户参保地/适用政策范围信息"
+    ],
+    "task_status": "completed"
+  },
+  "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+  "requested_model": "DeepSeek-V4.1-Flash-1017",
+  "response_model": "deepseek-flash"
+}

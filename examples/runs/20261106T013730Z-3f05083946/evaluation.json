@@ -1,0 +1,103 @@
+{
+  "records": [
+    {
+      "name": "permutation-0",
+      "passed": true,
+      "reached_documents": 14,
+      "target_ids": [
+        "R150678",
+        "R780217"
+      ]
+    },
+    {
+      "name": "permutation-1",
+      "passed": true,
+      "reached_documents": 14,
+      "target_ids": [
+        "R150678",
+        "R780217"
+      ]
+    },
+    {
+      "name": "permutation-2",
+      "passed": true,
+      "reached_documents": 14,
+      "target_ids": [
+        "R150678",
+        "R780217"
+      ]
+    },
+    {
+      "name": "real-conflict",
+      "passed": true,
+      "actions": [
+        {
+          "action": "search",
+          "purpose": "检索报销期限相关制度",
+          "query": "报销期限 报销时效 报销截止时间"
+        },
+        {
+          "action": "read",
+          "purpose": "读取两份报销期限制度原文核实规定与替代关系",
+          "document_id": "R150678",
+          "fragment_id": "p1"
+        },
+        {
+          "action": "read",
+          "purpose": "读取另一份报销期限制度原文核实规定与替代关系",
+          "document_id": "R780217",
+          "fragment_id": "p1"
+        },
+        {
+          "action": "search",
+          "purpose": "检索是否存在明确报销期限的正式制度并查证两份冲突制度的关系",
+          "query": "报销制度 费用报销管理办法 报销时限 生效 废止 替代",
+          "offset": 6,
+          "dataset_digest": "c0d5b03345985eee4f1f9de5fcf5eb8c515c9f18e378dae71a32aafa0c778d98"
+        },
+        {
+          "action": "search",
+          "purpose": "查询剩余候选，确认有无其他正式制度或替代关系说明",
+          "query": "报销期限 15天 30天 制度 替代 废止 适用",
+          "offset": 12,
+          "dataset_digest": "c0d5b03345985eee4f1f9de5fcf5eb8c515c9f18e378dae71a32aafa0c778d98"
+        },
+        {
+          "action": "finish",
+          "purpose": "两份现行制度对报销期限规定冲突且无替代关系说明，结束回答",
+          "outcome": "conflict_unresolved",
+          "answer": "",
+          "citations": [
+            {
+              "citation_id": "C1",
+              "document_id": "R150678",
+              "version": "2026-01-01",
+              "fragment_id": "p1",
+              "quote": "报销期限为15天。"
+            },
+            {
+              "citation_id": "C2",
+              "document_id": "R780217",
+              "version": "2026-01-01",
+              "fragment_id": "p1",
+              "quote": "报销期限为30天。"
+            }
+          ],
+          "gaps": [
+            "conflict"
+          ],
+          "claims": [
+            {
+              "type": "quote",
+              "citation_id": "C1"
+            },
+            {
+              "type": "quote",
+              "citation_id": "C2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

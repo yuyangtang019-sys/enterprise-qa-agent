@@ -1,0 +1,168 @@
+{
+  "name": "session-b",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "北京出差住宿限额？",
+      "session_id": "b"
+    },
+    "raw_body_size": 62
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "outcome": "answered",
+      "answer": "按现行《差旅住宿现行制度》（2026-01-01生效，适用于全体员工境内差旅），北京出差住宿上限为每晚650元[C1]；该制度明确替代旧版制度[C1]。",
+      "citations": [
+        {
+          "citation_id": "C1",
+          "document_id": "TRAVEL-NEW",
+          "version": "2026-01-01",
+          "fragment_id": "p1",
+          "quote": "北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+        }
+      ],
+      "gaps": [],
+      "task_status": "completed"
+    },
+    "trace": {
+      "run_id": "d3041571-4526-488d-8b29-57834200e795",
+      "timestamp": "2026-11-04T10:23:44.499210+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "北京出差住宿限额？",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找北京出差住宿限额标准",
+            "query": "北京 出差 住宿 限额 标准"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "title": "差旅住宿现行制度",
+                "score": 2,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "差旅住宿现行制度 上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+              },
+              {
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "title": "旧版差旅住宿",
+                "score": 2,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "旧版差旅住宿 上海住宿上限每晚500元。北京住宿上限每晚550元。"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 976
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "read",
+            "purpose": "核实现行北京住宿限额原文及替代关系",
+            "document_id": "TRAVEL-NEW",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "TRAVEL-NEW",
+              "title": "差旅住宿现行制度",
+              "version": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "status": "active",
+              "supersedes": [
+                "TRAVEL-OLD"
+              ],
+              "scope": "全体员工境内差旅"
+            },
+            "fragment_id": "p1",
+            "text": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+          },
+          "attempts": 1,
+          "elapsed_ms": 728
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "finish",
+            "purpose": "依据现行制度原文回答北京出差住宿限额",
+            "outcome": "answered",
+            "answer": "按现行《差旅住宿现行制度》（2026-01-01生效，适用于全体员工境内差旅），北京出差住宿上限为每晚650元[C1]；该制度明确替代旧版制度[C1]。",
+            "citations": [
+              {
+                "citation_id": "C1",
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+              }
+            ],
+            "gaps": []
+          },
+          "observation": {
+            "ok": true,
+            "tool": "finish",
+            "verified_calculations": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 1489
+        }
+      ],
+      "result": {
+        "outcome": "answered",
+        "answer": "按现行《差旅住宿现行制度》（2026-01-01生效，适用于全体员工境内差旅），北京出差住宿上限为每晚650元[C1]；该制度明确替代旧版制度[C1]。",
+        "citations": [
+          {
+            "citation_id": "C1",
+            "document_id": "TRAVEL-NEW",
+            "version": "2026-01-01",
+            "fragment_id": "p1",
+            "quote": "北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+          }
+        ],
+        "gaps": [],
+        "task_status": "completed"
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "business_envelope": true,
+    "result_matches_trace": true,
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "replacement_claim_supported": true,
+    "beijing": true
+  },
+  "passed": true,
+  "elapsed_seconds": 3.195
+}

@@ -1,0 +1,104 @@
+{
+  "mode": "real",
+  "started_unix": 1793875736.7578373,
+  "elapsed_seconds": 27.013,
+  "count": 5,
+  "passed": 4,
+  "cases": [
+    {
+      "name": "normal",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "amount_in_answer": true,
+        "amount_in_quote": true,
+        "current_doc": true,
+        "fake_history_not_adopted": true,
+        "answered": true,
+        "replacement_cited": true,
+        "replacement_claim_supported": true
+      }
+    },
+    {
+      "name": "conflict-pressure",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "conflict": true,
+        "both_read": true,
+        "priority_checked": true,
+        "conflict_gaps": true,
+        "both_cited": true
+      }
+    },
+    {
+      "name": "retry",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "failure_observed": true,
+        "recovered": true,
+        "answered": true,
+        "requirement": true,
+        "helpdesk": true
+      }
+    },
+    {
+      "name": "persistent",
+      "passed": true,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "failure_observed": true,
+        "incomplete": true,
+        "failure_status": true,
+        "no_unsupported_answer": true
+      }
+    },
+    {
+      "name": "calculation",
+      "passed": false,
+      "checks": {
+        "http_status": true,
+        "business_envelope": true,
+        "result_matches_trace": true,
+        "valid_trace_structure": false
+      }
+    }
+  ]
+}

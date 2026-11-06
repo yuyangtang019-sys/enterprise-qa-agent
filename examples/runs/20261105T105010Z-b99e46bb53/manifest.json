@@ -1,0 +1,19 @@
+{
+  "kind": "http",
+  "status": "completed",
+  "requested": [
+    "calculation"
+  ],
+  "expanded": [
+    "calculation"
+  ],
+  "executed": [
+    "calculation"
+  ],
+  "skipped": [],
+  "mode": "real",
+  "total": 1,
+  "passed": 1,
+  "business_cases": 1,
+  "protocol_probes": 0
+}

@@ -1,0 +1,7 @@
+normal completed answered
+conflict completed conflict_unresolved
+outside completed insufficient_evidence
+paraphrase completed answered
+followup completed answered
+tool-retry completed answered
+tool-failure incomplete tool_failure

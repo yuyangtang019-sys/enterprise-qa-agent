@@ -1,0 +1,18 @@
+{
+  "name": "over-steps",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": "{\"question\":\"x\",\"max_steps\":21}",
+    "raw_body_size": 31
+  },
+  "status": 400,
+  "response": {
+    "error": "invalid_request"
+  },
+  "checks": {
+    "http_status": true
+  },
+  "passed": true,
+  "elapsed_seconds": 0.001
+}

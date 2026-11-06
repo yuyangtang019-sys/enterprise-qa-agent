@@ -1,0 +1,211 @@
+{
+  "name": "unknown-city",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "深圳出差住宿上限多少？不要按上海标准类推。"
+    },
+    "raw_body_size": 79
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "outcome": "insufficient_evidence",
+      "answer": "现有现行差旅住宿制度只列明上海和北京的住宿上限，未规定深圳的出差住宿上限，因此无法给出深圳的具体上限金额。[C1]",
+      "citations": [
+        {
+          "citation_id": "C1",
+          "document_id": "TRAVEL-NEW",
+          "version": "2026-01-01",
+          "fragment_id": "p1",
+          "quote": "上海住宿上限每晚600元。北京住宿上限每晚650元。"
+        }
+      ],
+      "gaps": [
+        "知识库中现行差旅住宿制度未列明深圳的住宿上限金额",
+        "未检索到专门规定深圳住宿上限的其他制度或条款"
+      ],
+      "task_status": "completed"
+    },
+    "trace": {
+      "run_id": "35e0ca0b-bde6-4df3-862f-82558f8e17f0",
+      "timestamp": "2026-11-04T09:16:15.506812+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "深圳出差住宿上限多少？不要按上海标准类推。",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找深圳出差住宿标准",
+            "query": "深圳 出差 住宿 标准 上限"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "title": "差旅住宿现行制度",
+                "score": 2,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "差旅住宿现行制度 上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+              },
+              {
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "title": "旧版差旅住宿",
+                "score": 2,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "旧版差旅住宿 上海住宿上限每晚500元。北京住宿上限每晚550元。"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 777
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "search",
+            "purpose": "查找深圳住宿标准的具体文档",
+            "query": "深圳 住宿 每晚 上限 元"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "title": "差旅住宿现行制度",
+                "score": 3,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "差旅住宿现行制度 上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+              },
+              {
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "title": "旧版差旅住宿",
+                "score": 3,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "旧版差旅住宿 上海住宿上限每晚500元。北京住宿上限每晚550元。"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 744
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "read",
+            "purpose": "核对现行制度原文是否规定深圳住宿上限",
+            "document_id": "TRAVEL-NEW",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "TRAVEL-NEW",
+              "title": "差旅住宿现行制度",
+              "version": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "status": "active",
+              "supersedes": [
+                "TRAVEL-OLD"
+              ],
+              "scope": "全体员工境内差旅"
+            },
+            "fragment_id": "p1",
+            "text": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+          },
+          "attempts": 1,
+          "elapsed_ms": 804
+        },
+        {
+          "step": 4,
+          "action": {
+            "action": "finish",
+            "purpose": "说明现行制度未规定深圳住宿上限",
+            "outcome": "insufficient_evidence",
+            "answer": "现有现行差旅住宿制度只列明上海和北京的住宿上限，未规定深圳的出差住宿上限，因此无法给出深圳的具体上限金额。[C1]",
+            "citations": [
+              {
+                "citation_id": "C1",
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "上海住宿上限每晚600元。北京住宿上限每晚650元。"
+              }
+            ],
+            "gaps": [
+              "知识库中现行差旅住宿制度未列明深圳的住宿上限金额",
+              "未检索到专门规定深圳住宿上限的其他制度或条款"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "tool": "finish"
+          },
+          "attempts": 1,
+          "elapsed_ms": 1913
+        }
+      ],
+      "result": {
+        "outcome": "insufficient_evidence",
+        "answer": "现有现行差旅住宿制度只列明上海和北京的住宿上限，未规定深圳的出差住宿上限，因此无法给出深圳的具体上限金额。[C1]",
+        "citations": [
+          {
+            "citation_id": "C1",
+            "document_id": "TRAVEL-NEW",
+            "version": "2026-01-01",
+            "fragment_id": "p1",
+            "quote": "上海住宿上限每晚600元。北京住宿上限每晚650元。"
+          }
+        ],
+        "gaps": [
+          "知识库中现行差旅住宿制度未列明深圳的住宿上限金额",
+          "未检索到专门规定深圳住宿上限的其他制度或条款"
+        ],
+        "task_status": "completed"
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "business_envelope": true,
+    "result_matches_trace": true,
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "no_city_guess": true,
+    "no_invented_city_amount": true
+  },
+  "passed": true,
+  "elapsed_seconds": 4.24
+}

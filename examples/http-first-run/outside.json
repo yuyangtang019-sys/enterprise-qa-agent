@@ -1,0 +1,104 @@
+{
+  "name": "outside",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "生育津贴具体金额是多少？"
+    },
+    "raw_body_size": 52
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "task_status": "awaiting_user",
+      "outcome": "insufficient_evidence",
+      "answer": "请问您所在的城市或参保地区是哪里？生育津贴金额与当地缴费基数、产假天数等政策有关。",
+      "citations": [],
+      "gaps": [
+        "知识库检索“生育津贴 具体金额 标准”和“生育津贴 金额 计算”均无结果，需要参保地区才能进一步定位当地政策。"
+      ]
+    },
+    "trace": {
+      "run_id": "97358f47-5d78-4318-8f9d-c4bea094755a",
+      "timestamp": "2026-11-04T09:09:23.131193+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "生育津贴具体金额是多少？",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找生育津贴具体金额的相关政策或规定",
+            "query": "生育津贴 具体金额 标准"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 903
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "search",
+            "purpose": "改写关键词检索生育津贴金额标准",
+            "query": "生育津贴 金额 计算"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 792
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "ask_user",
+            "purpose": "确认地区以检索当地生育津贴金额政策",
+            "question": "请问您所在的城市或参保地区是哪里？生育津贴金额与当地缴费基数、产假天数等政策有关。",
+            "reason": "知识库检索“生育津贴 具体金额 标准”和“生育津贴 金额 计算”均无结果，需要参保地区才能进一步定位当地政策。"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "ask_user"
+          },
+          "attempts": 1,
+          "elapsed_ms": 1560
+        }
+      ],
+      "result": {
+        "task_status": "awaiting_user",
+        "outcome": "insufficient_evidence",
+        "answer": "请问您所在的城市或参保地区是哪里？生育津贴金额与当地缴费基数、产假天数等政策有关。",
+        "citations": [],
+        "gaps": [
+          "知识库检索“生育津贴 具体金额 标准”和“生育津贴 金额 计算”均无结果，需要参保地区才能进一步定位当地政策。"
+        ]
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "real_mode": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "no_answer": true,
+    "gaps": true,
+    "no_fabrication": true
+  },
+  "passed": true,
+  "elapsed_seconds": 3.271
+}

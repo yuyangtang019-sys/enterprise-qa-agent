@@ -1,0 +1,255 @@
+{
+  "name": "synthesis",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "上海和北京各住一晚，分别限额多少，报销要交哪些材料？"
+    },
+    "raw_body_size": 94
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "outcome": "answered",
+      "answer": "上海住宿限额为每晚600元[C1]；北京住宿限额为每晚650元[C2]。两地上限均按“每晚”计，各住一晚时应分别对照上述单晚上限。差旅报销须提交发票、行程单及审批记录[C3]。",
+      "citations": [
+        {
+          "citation_id": "C1",
+          "document_id": "TRAVEL-NEW",
+          "version": "2026-01-01",
+          "fragment_id": "p1",
+          "quote": "上海住宿上限每晚600元。"
+        },
+        {
+          "citation_id": "C2",
+          "document_id": "TRAVEL-NEW",
+          "version": "2026-01-01",
+          "fragment_id": "p1",
+          "quote": "北京住宿上限每晚650元。"
+        },
+        {
+          "citation_id": "C3",
+          "document_id": "EXPENSE",
+          "version": "2026-02-01",
+          "fragment_id": "p1",
+          "quote": "差旅报销须提交发票、行程单及审批记录。"
+        }
+      ],
+      "gaps": [
+        "未说明不同职级、城市类别或特殊情形是否适用不同住宿标准",
+        "未说明发票类型、行程单形式及审批记录的具体格式或提交方式"
+      ],
+      "task_status": "completed"
+    },
+    "trace": {
+      "run_id": "6fc0cd45-ca8b-40aa-93b0-2a500ef4edc7",
+      "timestamp": "2026-11-04T09:14:13.738498+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "上海和北京各住一晚，分别限额多少，报销要交哪些材料？",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找上海和北京住宿费限额及报销材料要求",
+            "query": "上海 北京 住宿费 限额 报销材料"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "title": "差旅住宿现行制度",
+                "score": 4,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "差旅住宿现行制度 上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+              },
+              {
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "title": "旧版差旅住宿",
+                "score": 4,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "旧版差旅住宿 上海住宿上限每晚500元。北京住宿上限每晚550元。"
+              },
+              {
+                "document_id": "EXPENSE",
+                "version": "2026-02-01",
+                "title": "报销材料",
+                "score": 3,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "报销材料 差旅报销须提交发票、行程单及审批记录。"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 1307
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "read",
+            "purpose": "核实现行差旅住宿制度中上海和北京限额及替代关系原文",
+            "document_id": "TRAVEL-NEW",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "TRAVEL-NEW",
+              "title": "差旅住宿现行制度",
+              "version": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "status": "active",
+              "supersedes": [
+                "TRAVEL-OLD"
+              ],
+              "scope": "全体员工境内差旅"
+            },
+            "fragment_id": "p1",
+            "text": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+          },
+          "attempts": 1,
+          "elapsed_ms": 1114
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "read",
+            "purpose": "核实报销材料要求的原文",
+            "document_id": "EXPENSE",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "EXPENSE",
+              "title": "报销材料",
+              "version": "2026-02-01",
+              "effective_date": "2026-02-01",
+              "status": "active",
+              "supersedes": [],
+              "scope": "全体员工"
+            },
+            "fragment_id": "p1",
+            "text": "差旅报销须提交发票、行程单及审批记录。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+          },
+          "attempts": 1,
+          "elapsed_ms": 736
+        },
+        {
+          "step": 4,
+          "action": {
+            "action": "finish",
+            "purpose": "基于已读取原文回答住宿限额与报销材料",
+            "outcome": "answered",
+            "answer": "上海住宿限额为每晚600元[C1]；北京住宿限额为每晚650元[C2]。两地上限均按“每晚”计，各住一晚时应分别对照上述单晚上限。差旅报销须提交发票、行程单及审批记录[C3]。",
+            "citations": [
+              {
+                "citation_id": "C1",
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "上海住宿上限每晚600元。"
+              },
+              {
+                "citation_id": "C2",
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "北京住宿上限每晚650元。"
+              },
+              {
+                "citation_id": "C3",
+                "document_id": "EXPENSE",
+                "version": "2026-02-01",
+                "fragment_id": "p1",
+                "quote": "差旅报销须提交发票、行程单及审批记录。"
+              }
+            ],
+            "gaps": [
+              "未说明不同职级、城市类别或特殊情形是否适用不同住宿标准",
+              "未说明发票类型、行程单形式及审批记录的具体格式或提交方式"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "tool": "finish"
+          },
+          "attempts": 1,
+          "elapsed_ms": 1759
+        }
+      ],
+      "result": {
+        "outcome": "answered",
+        "answer": "上海住宿限额为每晚600元[C1]；北京住宿限额为每晚650元[C2]。两地上限均按“每晚”计，各住一晚时应分别对照上述单晚上限。差旅报销须提交发票、行程单及审批记录[C3]。",
+        "citations": [
+          {
+            "citation_id": "C1",
+            "document_id": "TRAVEL-NEW",
+            "version": "2026-01-01",
+            "fragment_id": "p1",
+            "quote": "上海住宿上限每晚600元。"
+          },
+          {
+            "citation_id": "C2",
+            "document_id": "TRAVEL-NEW",
+            "version": "2026-01-01",
+            "fragment_id": "p1",
+            "quote": "北京住宿上限每晚650元。"
+          },
+          {
+            "citation_id": "C3",
+            "document_id": "EXPENSE",
+            "version": "2026-02-01",
+            "fragment_id": "p1",
+            "quote": "差旅报销须提交发票、行程单及审批记录。"
+          }
+        ],
+        "gaps": [
+          "未说明不同职级、城市类别或特殊情形是否适用不同住宿标准",
+          "未说明发票类型、行程单形式及审批记录的具体格式或提交方式"
+        ],
+        "task_status": "completed"
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "business_envelope": true,
+    "result_matches_trace": true,
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "shanghai": true,
+    "beijing": true,
+    "expense_materials": true
+  },
+  "passed": true,
+  "elapsed_seconds": 4.93
+}

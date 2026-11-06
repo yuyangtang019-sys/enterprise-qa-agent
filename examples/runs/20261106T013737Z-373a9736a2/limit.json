@@ -1,0 +1,217 @@
+{
+  "name": "limit",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "上海出差住宿限额？",
+      "max_steps": 1
+    },
+    "raw_body_size": 59
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "task_status": "incomplete",
+      "outcome": "step_limit",
+      "answer": "达到步数上限，本轮未完成。",
+      "citations": [],
+      "gaps": [
+        "需要继续检索或读取资料。"
+      ]
+    },
+    "trace": {
+      "run_id": "500c6c1d-a5d2-4dd8-a2ee-133723ef080c",
+      "timestamp": "2026-11-06T01:38:38.937528+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "上海出差住宿限额？",
+      "max_steps": 1,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找上海出差住宿限额制度",
+            "query": "上海 出差 住宿 限额"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "title": "差旅住宿现行制度",
+                "scope": "全体员工境内差旅",
+                "status": "active",
+                "effective_date": "2026-01-01",
+                "supersedes": [
+                  "TRAVEL-OLD"
+                ],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。",
+                "score": 0.03278688524590164,
+                "ranking": {
+                  "0": {
+                    "rank": 1,
+                    "score": 2
+                  },
+                  "1": {
+                    "rank": 1,
+                    "score": 16.398012531855194
+                  }
+                }
+              },
+              {
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "title": "旧版差旅住宿",
+                "scope": "全体员工境内差旅",
+                "status": "retired",
+                "effective_date": "2024-01-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "上海住宿上限每晚500元。北京住宿上限每晚550元。",
+                "score": 0.03225806451612903,
+                "ranking": {
+                  "0": {
+                    "rank": 2,
+                    "score": 2
+                  },
+                  "1": {
+                    "rank": 2,
+                    "score": 16.13582777852318
+                  }
+                }
+              },
+              {
+                "document_id": "EXPENSE",
+                "version": "2026-02-01",
+                "title": "报销材料",
+                "scope": "全体员工",
+                "status": "active",
+                "effective_date": "2026-02-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "差旅报销须提交发票、行程单及审批记录。",
+                "score": 0.015873015873015872,
+                "ranking": {
+                  "1": {
+                    "rank": 3,
+                    "score": 2.193447249834433
+                  }
+                }
+              },
+              {
+                "document_id": "SCOPE",
+                "version": "2026-06-01",
+                "title": "知识库范围说明",
+                "scope": "知识问答",
+                "status": "active",
+                "effective_date": "2026-06-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "本合成知识库涵盖差旅、年假、采购、设备和安全制度；其他福利请咨询人力资源部门。",
+                "score": 0.015625,
+                "ranking": {
+                  "1": {
+                    "rank": 4,
+                    "score": 2.193447249834433
+                  }
+                }
+              },
+              {
+                "document_id": "RESOLUTION",
+                "version": "2026-04-01",
+                "title": "采购审批冲突优先关系说明",
+                "scope": "采购审批制度冲突",
+                "status": "active",
+                "effective_date": "2026-04-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "PROCUREMENT 与 FINANCE 均有效，范围相同，尚无优先关系或替代裁决；遇到冲突须向制度负责人取得书面确认。",
+                "score": 0.015384615384615385,
+                "ranking": {
+                  "1": {
+                    "rank": 5,
+                    "score": 1.6873334393652097
+                  }
+                }
+              },
+              {
+                "document_id": "DEVICE",
+                "version": "2025-05-01",
+                "title": "设备领用制度",
+                "scope": "全体员工",
+                "status": "active",
+                "effective_date": "2025-05-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "电脑设备领用须提交IT工单并由部门经理审批。",
+                "score": 0.015151515151515152,
+                "ranking": {
+                  "1": {
+                    "rank": 6,
+                    "score": 1.0948349611663233
+                  }
+                }
+              }
+            ],
+            "total_candidates": 10,
+            "has_more": true,
+            "next_offset": 6,
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+            "related_candidates": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 869
+        }
+      ],
+      "result": {
+        "task_status": "incomplete",
+        "outcome": "step_limit",
+        "answer": "达到步数上限，本轮未完成。",
+        "citations": [],
+        "gaps": [
+          "需要继续检索或读取资料。"
+        ]
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "business_envelope": true,
+    "result_matches_trace": true,
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "incomplete": true,
+    "limit": true,
+    "one_step": true
+  },
+  "passed": true,
+  "elapsed_seconds": 0.872
+}

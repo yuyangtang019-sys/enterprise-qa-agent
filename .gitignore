@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.env
+.env.local
+.venv/
+examples/latest*
+!examples/latest-evaluation.json
+
+.idea/
+
+# Other local projects and machine-specific audit inventories are not part of this submission.
+permission-assistant/
+permission-assistant-submit/
+start_permission_assistant.cmd
+examples/migration-*
+examples/protected-fingerprints.json

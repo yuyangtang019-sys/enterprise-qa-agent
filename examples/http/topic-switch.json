@@ -1,0 +1,182 @@
+{
+  "name": "topic-switch",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "换个问题，入职满一年有几天年假？",
+      "session_id": "a"
+    },
+    "raw_body_size": 83
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "outcome": "answered",
+      "answer": "按《年假制度》（2025-01-01生效，适用于全职员工），入职满一年的员工每年享有五天年假[C1]。年假申请须经直属主管批准[C1]。",
+      "citations": [
+        {
+          "citation_id": "C1",
+          "document_id": "LEAVE",
+          "version": "2025-01-01",
+          "fragment_id": "p1",
+          "quote": "入职满一年员工每年享有五天年假。申请须经直属主管批准。"
+        }
+      ],
+      "gaps": [
+        "制度未说明兼职或非全职员工的年假安排；知识库范围说明指出其他福利需咨询人力资源部门"
+      ],
+      "task_status": "completed"
+    },
+    "trace": {
+      "run_id": "46f42e41-a834-4e44-9d11-c895573d62b8",
+      "timestamp": "2026-11-04T10:23:41.207282+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "换个问题，入职满一年有几天年假？",
+      "max_steps": 12,
+      "history": [
+        {
+          "question": "上海出差住宿限额？",
+          "answer": "按现行差旅住宿制度，上海住宿上限为每晚600元[C1]。该制度明确替代旧版制度[C2]，旧版制度中上海住宿上限为每晚500元[C3]，已不再适用。",
+          "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+        },
+        {
+          "question": "那北京呢？",
+          "answer": "按现行差旅住宿制度，北京住宿上限为每晚650元[C1]；该制度明确替代旧版制度[C2]。",
+          "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+        }
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找入职满一年年假天数的规定",
+            "query": "入职满一年 年假 天数"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "LEAVE",
+                "version": "2025-01-01",
+                "title": "年假制度",
+                "score": 5,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "年假制度 入职满一年员工每年享有五天年假。申请须经直属主管批准。"
+              },
+              {
+                "document_id": "SCOPE",
+                "version": "2026-06-01",
+                "title": "知识库范围说明",
+                "score": 1,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "知识库范围说明 本合成知识库涵盖差旅、年假、采购、设备和安全制度；其他福利请咨询人力资源部门。"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 921
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "read",
+            "purpose": "读取年假制度原文确认满一年年假天数",
+            "document_id": "LEAVE",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "LEAVE",
+              "title": "年假制度",
+              "version": "2025-01-01",
+              "effective_date": "2025-01-01",
+              "status": "active",
+              "supersedes": [],
+              "scope": "全职员工"
+            },
+            "fragment_id": "p1",
+            "text": "入职满一年员工每年享有五天年假。申请须经直属主管批准。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46"
+          },
+          "attempts": 1,
+          "elapsed_ms": 770
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "finish",
+            "purpose": "依据年假制度原文回答满一年年假天数",
+            "outcome": "answered",
+            "answer": "按《年假制度》（2025-01-01生效，适用于全职员工），入职满一年的员工每年享有五天年假[C1]。年假申请须经直属主管批准[C1]。",
+            "citations": [
+              {
+                "citation_id": "C1",
+                "document_id": "LEAVE",
+                "version": "2025-01-01",
+                "fragment_id": "p1",
+                "quote": "入职满一年员工每年享有五天年假。申请须经直属主管批准。"
+              }
+            ],
+            "gaps": [
+              "制度未说明兼职或非全职员工的年假安排；知识库范围说明指出其他福利需咨询人力资源部门"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "tool": "finish",
+            "verified_calculations": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 1597
+        }
+      ],
+      "result": {
+        "outcome": "answered",
+        "answer": "按《年假制度》（2025-01-01生效，适用于全职员工），入职满一年的员工每年享有五天年假[C1]。年假申请须经直属主管批准[C1]。",
+        "citations": [
+          {
+            "citation_id": "C1",
+            "document_id": "LEAVE",
+            "version": "2025-01-01",
+            "fragment_id": "p1",
+            "quote": "入职满一年员工每年享有五天年假。申请须经直属主管批准。"
+          }
+        ],
+        "gaps": [
+          "制度未说明兼职或非全职员工的年假安排；知识库范围说明指出其他福利需咨询人力资源部门"
+        ],
+        "task_status": "completed"
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "business_envelope": true,
+    "result_matches_trace": true,
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "leave": true
+  },
+  "passed": true,
+  "elapsed_seconds": 3.3
+}

@@ -1,0 +1,102 @@
+{
+  "name": "limit",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "上海出差住宿限额？",
+      "max_steps": 1
+    },
+    "raw_body_size": 59
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "task_status": "incomplete",
+      "outcome": "step_limit",
+      "answer": "达到步数上限，本轮未完成。",
+      "citations": [],
+      "gaps": [
+        "需要继续检索或读取资料。"
+      ]
+    },
+    "trace": {
+      "run_id": "8ab2ad02-be9a-48e2-888e-ca6d9dc49b50",
+      "timestamp": "2026-11-04T09:17:47.121464+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "上海出差住宿限额？",
+      "max_steps": 1,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找上海出差住宿限额标准",
+            "query": "上海 出差 住宿 限额 标准"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "title": "差旅住宿现行制度",
+                "score": 2,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "差旅住宿现行制度 上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。"
+              },
+              {
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "title": "旧版差旅住宿",
+                "score": 2,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "旧版差旅住宿 上海住宿上限每晚500元。北京住宿上限每晚550元。"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 750
+        }
+      ],
+      "result": {
+        "task_status": "incomplete",
+        "outcome": "step_limit",
+        "answer": "达到步数上限，本轮未完成。",
+        "citations": [],
+        "gaps": [
+          "需要继续检索或读取资料。"
+        ]
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "business_envelope": true,
+    "result_matches_trace": true,
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "incomplete": true,
+    "limit": true,
+    "one_step": true
+  },
+  "passed": true,
+  "elapsed_seconds": 0.769
+}

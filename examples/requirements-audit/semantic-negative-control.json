@@ -1,0 +1,17 @@
+{
+  "purpose": "Negative control: swapped city amounts should fail semantic checks",
+  "altered_answer": "上海住宿上限每晚650元，北京住宿上限每晚600元。[C1]",
+  "all_existing_checks_passed": true,
+  "checks": {
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "shanghai": true,
+    "beijing": true
+  },
+  "note": "Synthetic negative control in memory; not an actual model answer; original traces unchanged."
+}

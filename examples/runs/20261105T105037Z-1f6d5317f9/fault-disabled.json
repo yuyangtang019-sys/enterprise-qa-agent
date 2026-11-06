@@ -1,0 +1,24 @@
+{
+  "name": "fault-disabled",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "x",
+      "fault": {
+        "document_id": "SECURITY",
+        "count": 1
+      }
+    },
+    "raw_body_size": 67
+  },
+  "status": 403,
+  "response": {
+    "error": "fault_injection_disabled"
+  },
+  "checks": {
+    "http_status": true
+  },
+  "passed": true,
+  "elapsed_seconds": 0.001
+}

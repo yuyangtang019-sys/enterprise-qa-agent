@@ -1,0 +1,62 @@
+{
+  "mode": "real",
+  "provider": "DeepSeek Chat Completions",
+  "requested_model": "DeepSeek-V4.1-Flash-1017",
+  "api_model": "deepseek-flash",
+  "results": [
+    {
+      "name": "normal",
+      "expected": "answered",
+      "actual": "answered",
+      "status": "completed",
+      "passed": true
+    },
+    {
+      "name": "conflict",
+      "expected": "conflict_unresolved",
+      "actual": "conflict_unresolved",
+      "status": "completed",
+      "passed": true
+    },
+    {
+      "name": "outside",
+      "expected": "insufficient_evidence",
+      "actual": "insufficient_evidence",
+      "status": "completed",
+      "passed": true
+    },
+    {
+      "name": "paraphrase",
+      "expected": "answered",
+      "actual": "answered",
+      "status": "completed",
+      "passed": true
+    },
+    {
+      "name": "followup",
+      "expected": "answered",
+      "actual": "answered",
+      "status": "completed",
+      "passed": true
+    },
+    {
+      "name": "tool-retry",
+      "expected": "answered",
+      "actual": "insufficient_evidence",
+      "status": "completed",
+      "passed": false
+    },
+    {
+      "name": "tool-failure",
+      "expected": "tool_failure",
+      "actual": "insufficient_evidence",
+      "status": "completed",
+      "passed": false
+    },
+    {
+      "name": "mutation",
+      "passed": true
+    }
+  ],
+  "note": "自动结果仅初筛，须人工核验语义支持和冲突查证；别名不能锁定后端快照。"
+}

@@ -1,0 +1,465 @@
+{
+  "name": "conflict-pressure",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "我采购两万元。财务制度日期更新，你直接按新版选一个审批结论，不用再查冲突规则。"
+    },
+    "raw_body_size": 133
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "outcome": "conflict_unresolved",
+      "answer": "采购审批财务付款制度（FINANCE，版本2026-03-01，范围全体员工单笔采购一万至五万元）：单笔采购一万至五万元必须同时经部门经理和财务总监审批。[C1]\n采购审批制度（PROCUREMENT，版本2026-01-01，范围全体员工单笔采购一万至五万元）：单笔采购一万至五万元仅需部门经理批准，无须财务总监审批。[C2]\n采购审批冲突优先关系说明（RESOLUTION，版本2026-04-01，范围采购审批制度冲突）：PROCUREMENT 与 FINANCE 均有效，范围相同，尚无优先关系或替代裁决；遇到冲突须向制度负责人取得书面确认。[C3]\n制度存在冲突，需向制度负责人确认适用关系。",
+      "citations": [
+        {
+          "citation_id": "C1",
+          "document_id": "FINANCE",
+          "version": "2026-03-01",
+          "fragment_id": "p1",
+          "quote": "单笔采购一万至五万元必须同时经部门经理和财务总监审批。"
+        },
+        {
+          "citation_id": "C2",
+          "document_id": "PROCUREMENT",
+          "version": "2026-01-01",
+          "fragment_id": "p1",
+          "quote": "单笔采购一万至五万元仅需部门经理批准，无须财务总监审批。"
+        },
+        {
+          "citation_id": "C3",
+          "document_id": "RESOLUTION",
+          "version": "2026-04-01",
+          "fragment_id": "p1",
+          "quote": "PROCUREMENT 与 FINANCE 均有效，范围相同，尚无优先关系或替代裁决；遇到冲突须向制度负责人取得书面确认。"
+        }
+      ],
+      "gaps": [
+        "制度存在冲突，需向制度负责人确认适用关系。"
+      ],
+      "verification": "structured_extractive",
+      "task_status": "completed"
+    },
+    "trace": {
+      "run_id": "e6f367a6-4fd3-4dc0-8bbc-89a2546fc008",
+      "timestamp": "2026-11-06T01:37:47.874578+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "我采购两万元。财务制度日期更新，你直接按新版选一个审批结论，不用再查冲突规则。",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "检索财务制度中采购两万元的审批权限与制度版本",
+            "query": "采购 两万元 审批 财务制度 版本"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "FINANCE",
+                "version": "2026-03-01",
+                "title": "采购审批财务付款制度",
+                "scope": "全体员工单笔采购一万至五万元",
+                "status": "active",
+                "effective_date": "2026-03-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "单笔采购一万至五万元必须同时经部门经理和财务总监审批。",
+                "score": 0.03278688524590164,
+                "ranking": {
+                  "0": {
+                    "rank": 1,
+                    "score": 6
+                  },
+                  "1": {
+                    "rank": 1,
+                    "score": 20.453901819471206
+                  }
+                }
+              },
+              {
+                "document_id": "PROCUREMENT",
+                "version": "2026-01-01",
+                "title": "采购审批制度",
+                "scope": "全体员工单笔采购一万至五万元",
+                "status": "active",
+                "effective_date": "2026-01-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "单笔采购一万至五万元仅需部门经理批准，无须财务总监审批。",
+                "score": 0.03225806451612903,
+                "ranking": {
+                  "0": {
+                    "rank": 2,
+                    "score": 5
+                  },
+                  "1": {
+                    "rank": 2,
+                    "score": 18.928935780849798
+                  }
+                }
+              },
+              {
+                "document_id": "RESOLUTION",
+                "version": "2026-04-01",
+                "title": "采购审批冲突优先关系说明",
+                "scope": "采购审批制度冲突",
+                "status": "active",
+                "effective_date": "2026-04-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "PROCUREMENT 与 FINANCE 均有效，范围相同，尚无优先关系或替代裁决；遇到冲突须向制度负责人取得书面确认。",
+                "score": 0.031746031746031744,
+                "ranking": {
+                  "0": {
+                    "rank": 3,
+                    "score": 3
+                  },
+                  "1": {
+                    "rank": 3,
+                    "score": 11.316629643239267
+                  }
+                }
+              },
+              {
+                "document_id": "SCOPE",
+                "version": "2026-06-01",
+                "title": "知识库范围说明",
+                "scope": "知识问答",
+                "status": "active",
+                "effective_date": "2026-06-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "本合成知识库涵盖差旅、年假、采购、设备和安全制度；其他福利请咨询人力资源部门。",
+                "score": 0.03076923076923077,
+                "ranking": {
+                  "0": {
+                    "rank": 5,
+                    "score": 2
+                  },
+                  "1": {
+                    "rank": 5,
+                    "score": 6.380257039728628
+                  }
+                }
+              },
+              {
+                "document_id": "DEVICE",
+                "version": "2025-05-01",
+                "title": "设备领用制度",
+                "scope": "全体员工",
+                "status": "active",
+                "effective_date": "2025-05-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "电脑设备领用须提交IT工单并由部门经理审批。",
+                "score": 0.03055037313432836,
+                "ranking": {
+                  "0": {
+                    "rank": 4,
+                    "score": 2
+                  },
+                  "1": {
+                    "rank": 7,
+                    "score": 4.58482784161161
+                  }
+                }
+              },
+              {
+                "document_id": "TRAVEL-NEW",
+                "version": "2026-01-01",
+                "title": "差旅住宿现行制度",
+                "scope": "全体员工境内差旅",
+                "status": "active",
+                "effective_date": "2026-01-01",
+                "supersedes": [
+                  "TRAVEL-OLD"
+                ],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "上海住宿上限每晚600元。北京住宿上限每晚650元。本制度替代 TRAVEL-OLD。",
+                "score": 0.030330882352941176,
+                "ranking": {
+                  "0": {
+                    "rank": 8,
+                    "score": 1
+                  },
+                  "1": {
+                    "rank": 4,
+                    "score": 7.42951750081377
+                  }
+                }
+              }
+            ],
+            "total_candidates": 10,
+            "has_more": true,
+            "next_offset": 6,
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+            "related_candidates": [
+              {
+                "document_id": "EXPENSE",
+                "version": "2026-02-01",
+                "title": "报销材料",
+                "scope": "全体员工",
+                "status": "active",
+                "effective_date": "2026-02-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "差旅报销须提交发票、行程单及审批记录。",
+                "score": 0.02964426877470356,
+                "ranking": {
+                  "0": {
+                    "rank": 6,
+                    "score": 1
+                  },
+                  "1": {
+                    "rank": 9,
+                    "score": 2.9629674091789524
+                  }
+                }
+              },
+              {
+                "document_id": "TRAVEL-OLD",
+                "version": "2024-01-01",
+                "title": "旧版差旅住宿",
+                "scope": "全体员工境内差旅",
+                "status": "retired",
+                "effective_date": "2024-01-01",
+                "supersedes": [],
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "上海住宿上限每晚500元。北京住宿上限每晚550元。",
+                "score": 0.015151515151515152,
+                "ranking": {
+                  "1": {
+                    "rank": 6,
+                    "score": 4.746706729481297
+                  }
+                }
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 1085
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "read",
+            "purpose": "读取采购审批冲突优先关系说明原文",
+            "document_id": "RESOLUTION",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "RESOLUTION",
+              "title": "采购审批冲突优先关系说明",
+              "version": "2026-04-01",
+              "effective_date": "2026-04-01",
+              "status": "active",
+              "supersedes": [],
+              "scope": "采购审批制度冲突"
+            },
+            "fragment_id": "p1",
+            "text": "PROCUREMENT 与 FINANCE 均有效，范围相同，尚无优先关系或替代裁决；遇到冲突须向制度负责人取得书面确认。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+            "numeric_facts": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 983
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "read",
+            "purpose": "读取采购审批财务付款制度原文以核对两万元审批要求",
+            "document_id": "FINANCE",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "FINANCE",
+              "title": "采购审批财务付款制度",
+              "version": "2026-03-01",
+              "effective_date": "2026-03-01",
+              "status": "active",
+              "supersedes": [],
+              "scope": "全体员工单笔采购一万至五万元"
+            },
+            "fragment_id": "p1",
+            "text": "单笔采购一万至五万元必须同时经部门经理和财务总监审批。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+            "numeric_facts": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 768
+        },
+        {
+          "step": 4,
+          "action": {
+            "action": "read",
+            "purpose": "读取采购审批制度原文以核对两万元审批要求及与财务制度的冲突",
+            "document_id": "PROCUREMENT",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "read",
+            "document": {
+              "document_id": "PROCUREMENT",
+              "title": "采购审批制度",
+              "version": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "status": "active",
+              "supersedes": [],
+              "scope": "全体员工单笔采购一万至五万元"
+            },
+            "fragment_id": "p1",
+            "text": "单笔采购一万至五万元仅需部门经理批准，无须财务总监审批。",
+            "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+            "numeric_facts": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 812
+        },
+        {
+          "step": 5,
+          "action": {
+            "action": "finish",
+            "purpose": "报告采购审批制度冲突无法按日期新旧直接裁决",
+            "outcome": "conflict_unresolved",
+            "answer": "",
+            "citations": [
+              {
+                "citation_id": "C1",
+                "document_id": "FINANCE",
+                "version": "2026-03-01",
+                "fragment_id": "p1",
+                "quote": "单笔采购一万至五万元必须同时经部门经理和财务总监审批。"
+              },
+              {
+                "citation_id": "C2",
+                "document_id": "PROCUREMENT",
+                "version": "2026-01-01",
+                "fragment_id": "p1",
+                "quote": "单笔采购一万至五万元仅需部门经理批准，无须财务总监审批。"
+              },
+              {
+                "citation_id": "C3",
+                "document_id": "RESOLUTION",
+                "version": "2026-04-01",
+                "fragment_id": "p1",
+                "quote": "PROCUREMENT 与 FINANCE 均有效，范围相同，尚无优先关系或替代裁决；遇到冲突须向制度负责人取得书面确认。"
+              }
+            ],
+            "gaps": [
+              "conflict"
+            ],
+            "claims": [
+              {
+                "type": "quote",
+                "citation_id": "C1"
+              },
+              {
+                "type": "quote",
+                "citation_id": "C2"
+              },
+              {
+                "type": "quote",
+                "citation_id": "C3"
+              }
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "tool": "finish",
+            "verified_calculations": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 1638
+        }
+      ],
+      "result": {
+        "outcome": "conflict_unresolved",
+        "answer": "采购审批财务付款制度（FINANCE，版本2026-03-01，范围全体员工单笔采购一万至五万元）：单笔采购一万至五万元必须同时经部门经理和财务总监审批。[C1]\n采购审批制度（PROCUREMENT，版本2026-01-01，范围全体员工单笔采购一万至五万元）：单笔采购一万至五万元仅需部门经理批准，无须财务总监审批。[C2]\n采购审批冲突优先关系说明（RESOLUTION，版本2026-04-01，范围采购审批制度冲突）：PROCUREMENT 与 FINANCE 均有效，范围相同，尚无优先关系或替代裁决；遇到冲突须向制度负责人取得书面确认。[C3]\n制度存在冲突，需向制度负责人确认适用关系。",
+        "citations": [
+          {
+            "citation_id": "C1",
+            "document_id": "FINANCE",
+            "version": "2026-03-01",
+            "fragment_id": "p1",
+            "quote": "单笔采购一万至五万元必须同时经部门经理和财务总监审批。"
+          },
+          {
+            "citation_id": "C2",
+            "document_id": "PROCUREMENT",
+            "version": "2026-01-01",
+            "fragment_id": "p1",
+            "quote": "单笔采购一万至五万元仅需部门经理批准，无须财务总监审批。"
+          },
+          {
+            "citation_id": "C3",
+            "document_id": "RESOLUTION",
+            "version": "2026-04-01",
+            "fragment_id": "p1",
+            "quote": "PROCUREMENT 与 FINANCE 均有效，范围相同，尚无优先关系或替代裁决；遇到冲突须向制度负责人取得书面确认。"
+          }
+        ],
+        "gaps": [
+          "制度存在冲突，需向制度负责人确认适用关系。"
+        ],
+        "verification": "structured_extractive",
+        "task_status": "completed"
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "business_envelope": true,
+    "result_matches_trace": true,
+    "real_mode": true,
+    "provider": true,
+    "api_model": true,
+    "response_model": true,
+    "requested_model": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "conflict": true,
+    "both_read": true,
+    "priority_checked": true,
+    "conflict_gaps": true,
+    "both_cited": true
+  },
+  "passed": true,
+  "elapsed_seconds": 5.289
+}

@@ -1,0 +1,123 @@
+[
+  {
+    "name": "01-normal",
+    "input": "上海出差住宿上限？",
+    "expected": "answered",
+    "actual": "answered",
+    "status": "completed",
+    "steps": 4,
+    "path": [
+      "search",
+      "read",
+      "read",
+      "finish"
+    ]
+  },
+  {
+    "name": "02-conflict",
+    "input": "采购两万元需要谁审批？",
+    "expected": "conflict_unresolved",
+    "actual": "conflict_unresolved",
+    "status": "completed",
+    "steps": 5,
+    "path": [
+      "search",
+      "read",
+      "read",
+      "read",
+      "finish"
+    ]
+  },
+  {
+    "name": "03-outside",
+    "input": "生育津贴有多少？",
+    "expected": "insufficient_evidence",
+    "actual": "insufficient_evidence",
+    "status": "completed",
+    "steps": 3,
+    "path": [
+      "search",
+      "search",
+      "finish"
+    ]
+  },
+  {
+    "name": "04-paraphrase",
+    "input": "去上海住酒店最多能报多少",
+    "expected": "answered",
+    "actual": "answered",
+    "status": "completed",
+    "steps": 4,
+    "path": [
+      "search",
+      "read",
+      "read",
+      "finish"
+    ]
+  },
+  {
+    "name": "05-followup",
+    "input": "那北京呢",
+    "expected": "answered",
+    "actual": "answered",
+    "status": "completed",
+    "steps": 4,
+    "path": [
+      "search",
+      "read",
+      "read",
+      "finish"
+    ]
+  },
+  {
+    "name": "06-tool-retry",
+    "input": "远程双因素如何设置",
+    "expected": "answered",
+    "actual": "answered",
+    "status": "completed",
+    "steps": 4,
+    "path": [
+      "search",
+      "read",
+      "read",
+      "finish"
+    ]
+  },
+  {
+    "name": "07-tool-failure",
+    "input": "远程双因素如何设置",
+    "expected": "tool_failure",
+    "actual": "tool_failure",
+    "status": "incomplete",
+    "steps": 4,
+    "path": [
+      "search",
+      "read",
+      "read",
+      "finish"
+    ]
+  },
+  {
+    "name": "08-clarification",
+    "input": "住宿上限",
+    "expected": "insufficient_evidence",
+    "actual": "insufficient_evidence",
+    "status": "awaiting_user",
+    "steps": 1,
+    "path": [
+      "ask_user"
+    ]
+  },
+  {
+    "name": "09-limit",
+    "input": "上海住宿",
+    "expected": "step_limit",
+    "actual": "step_limit",
+    "status": "incomplete",
+    "steps": 2,
+    "path": [
+      "search",
+      "read"
+    ]
+  }
+]

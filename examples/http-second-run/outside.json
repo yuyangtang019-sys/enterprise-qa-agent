@@ -1,0 +1,104 @@
+{
+  "name": "outside",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "生育津贴具体金额是多少？"
+    },
+    "raw_body_size": 52
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "task_status": "awaiting_user",
+      "outcome": "insufficient_evidence",
+      "answer": "请问您参保/所在的城市是哪个？以及您想了解的是产假生育津贴还是计划生育手术津贴？",
+      "citations": [],
+      "gaps": [
+        "知识库尚未检索到通用金额标准，需明确参保城市和津贴类型以定位适用政策"
+      ]
+    },
+    "trace": {
+      "run_id": "21219a53-9eb8-48b0-89bc-4b3de4c3e2b0",
+      "timestamp": "2026-11-04T09:11:25.908030+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "生育津贴具体金额是多少？",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找生育津贴金额相关规定",
+            "query": "生育津贴 金额 标准"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 824
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "search",
+            "purpose": "改写关键词再次检索生育津贴计发标准",
+            "query": "生育津贴 计发 标准 发放"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": []
+          },
+          "attempts": 1,
+          "elapsed_ms": 936
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "ask_user",
+            "purpose": "生育津贴金额与参保地及个人工资基数相关，需确认地区才能检索对应标准",
+            "question": "请问您参保/所在的城市是哪个？以及您想了解的是产假生育津贴还是计划生育手术津贴？",
+            "reason": "知识库尚未检索到通用金额标准，需明确参保城市和津贴类型以定位适用政策"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "ask_user"
+          },
+          "attempts": 1,
+          "elapsed_ms": 1286
+        }
+      ],
+      "result": {
+        "task_status": "awaiting_user",
+        "outcome": "insufficient_evidence",
+        "answer": "请问您参保/所在的城市是哪个？以及您想了解的是产假生育津贴还是计划生育手术津贴？",
+        "citations": [],
+        "gaps": [
+          "知识库尚未检索到通用金额标准，需明确参保城市和津贴类型以定位适用政策"
+        ]
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "real_mode": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "no_answer": true,
+    "gaps": true,
+    "no_fabrication": true
+  },
+  "passed": true,
+  "elapsed_seconds": 3.048
+}

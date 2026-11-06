@@ -1,0 +1,73 @@
+{
+  "name": "session-isolation",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "那边呢？",
+      "session_id": "isolated"
+    },
+    "raw_body_size": 54
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "task_status": "awaiting_user",
+      "outcome": "insufficient_evidence",
+      "answer": "你指的是哪个地点或哪方面的情况？比如某个城市、办公点或具体业务事项。",
+      "citations": [],
+      "gaps": [
+        "问题只有“那边呢”，缺少指代对象，无法确定检索范围。"
+      ]
+    },
+    "trace": {
+      "run_id": "28c468fd-a412-4e9a-b416-7dd06959cd0e",
+      "timestamp": "2026-11-04T09:09:47.976002+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "那边呢？",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "ask_user",
+            "purpose": "澄清“那边”所指的地点或主题",
+            "question": "你指的是哪个地点或哪方面的情况？比如某个城市、办公点或具体业务事项。",
+            "reason": "问题只有“那边呢”，缺少指代对象，无法确定检索范围。"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "ask_user"
+          },
+          "attempts": 1,
+          "elapsed_ms": 803
+        }
+      ],
+      "result": {
+        "task_status": "awaiting_user",
+        "outcome": "insufficient_evidence",
+        "answer": "你指的是哪个地点或哪方面的情况？比如某个城市、办公点或具体业务事项。",
+        "citations": [],
+        "gaps": [
+          "问题只有“那边呢”，缺少指代对象，无法确定检索范围。"
+        ]
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "real_mode": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "no_history": true
+  },
+  "passed": true,
+  "elapsed_seconds": 0.805
+}

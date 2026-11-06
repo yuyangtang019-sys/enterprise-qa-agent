@@ -1,0 +1,179 @@
+{
+  "name": "persistent",
+  "request": {
+    "method": "POST",
+    "path": "/ask",
+    "body": {
+      "question": "远程VPN是否必须启用双因素认证？",
+      "fault": {
+        "document_id": "SECURITY",
+        "count": -1
+      }
+    },
+    "raw_body_size": 112
+  },
+  "status": 200,
+  "response": {
+    "result": {
+      "outcome": "tool_failure",
+      "answer": "无法确认远程VPN是否必须启用双因素认证：检索到标题为《远程双因素认证》的文档摘要提示“远程访问VPN必须启用双因素认证”，但该原文在本轮多次重试（含更换片段标识）均读取失败，按规定搜索摘要不能作为证据，故不作业务断言。",
+      "citations": [],
+      "gaps": [
+        "SECURITY 文档 p1 片段原文经三次读取均返回 injected_unavailable，所需原文仍不可用，无法核实并引用双因素认证要求。"
+      ],
+      "task_status": "incomplete"
+    },
+    "trace": {
+      "run_id": "25afcd27-d2de-419a-b18b-f2c1e979c2f3",
+      "timestamp": "2026-11-04T09:12:14.507349+00:00",
+      "mode": "real",
+      "provider": "DeepSeek Chat Completions",
+      "model": "deepseek-flash",
+      "dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "user_input": "远程VPN是否必须启用双因素认证？",
+      "max_steps": 12,
+      "history": [],
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "action": "search",
+            "purpose": "查找远程VPN双因素认证相关制度",
+            "query": "远程VPN 双因素认证 必须"
+          },
+          "observation": {
+            "ok": true,
+            "tool": "search",
+            "hits": [
+              {
+                "document_id": "SECURITY",
+                "version": "2026-01-01",
+                "title": "远程双因素认证",
+                "score": 8,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "远程双因素认证 远程访问VPN必须启用双因素认证，遗失认证设备请联系IT服务台。"
+              },
+              {
+                "document_id": "FINANCE",
+                "version": "2026-03-01",
+                "title": "采购审批财务付款制度",
+                "score": 1,
+                "fragment_ids": [
+                  "p1"
+                ],
+                "summary": "采购审批财务付款制度 单笔采购一万至五万元必须同时经部门经理和财务总监审批。"
+              }
+            ]
+          },
+          "attempts": 1,
+          "elapsed_ms": 928
+        },
+        {
+          "step": 2,
+          "action": {
+            "action": "read",
+            "purpose": "核实安全制度中关于远程VPN双因素认证的原文",
+            "document_id": "SECURITY",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": false,
+            "tool": "read",
+            "error": {
+              "code": "injected_unavailable",
+              "message": "injected_unavailable",
+              "retryable": true
+            }
+          },
+          "attempts": 1,
+          "elapsed_ms": 1131
+        },
+        {
+          "step": 3,
+          "action": {
+            "action": "read",
+            "purpose": "重试读取安全制度原文以核实远程VPN双因素认证要求",
+            "document_id": "SECURITY",
+            "fragment_id": "p1"
+          },
+          "observation": {
+            "ok": false,
+            "tool": "read",
+            "error": {
+              "code": "injected_unavailable",
+              "message": "injected_unavailable",
+              "retryable": true
+            }
+          },
+          "attempts": 1,
+          "elapsed_ms": 933
+        },
+        {
+          "step": 4,
+          "action": {
+            "action": "read",
+            "purpose": "更换片段标识再次尝试读取安全制度原文",
+            "document_id": "SECURITY",
+            "fragment_id": "p1#0"
+          },
+          "observation": {
+            "ok": false,
+            "tool": "read",
+            "error": {
+              "code": "injected_unavailable",
+              "message": "injected_unavailable",
+              "retryable": true
+            }
+          },
+          "attempts": 1,
+          "elapsed_ms": 830
+        },
+        {
+          "step": 5,
+          "action": {
+            "action": "finish",
+            "purpose": "读取原文多次失败，无法提供可引用证据",
+            "outcome": "tool_failure",
+            "answer": "无法确认远程VPN是否必须启用双因素认证：检索到标题为《远程双因素认证》的文档摘要提示“远程访问VPN必须启用双因素认证”，但该原文在本轮多次重试（含更换片段标识）均读取失败，按规定搜索摘要不能作为证据，故不作业务断言。",
+            "citations": [],
+            "gaps": [
+              "SECURITY 文档 p1 片段原文经三次读取均返回 injected_unavailable，所需原文仍不可用，无法核实并引用双因素认证要求。"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "tool": "finish"
+          },
+          "attempts": 1,
+          "elapsed_ms": 1637
+        }
+      ],
+      "result": {
+        "outcome": "tool_failure",
+        "answer": "无法确认远程VPN是否必须启用双因素认证：检索到标题为《远程双因素认证》的文档摘要提示“远程访问VPN必须启用双因素认证”，但该原文在本轮多次重试（含更换片段标识）均读取失败，按规定搜索摘要不能作为证据，故不作业务断言。",
+        "citations": [],
+        "gaps": [
+          "SECURITY 文档 p1 片段原文经三次读取均返回 injected_unavailable，所需原文仍不可用，无法核实并引用双因素认证要求。"
+        ],
+        "task_status": "incomplete"
+      },
+      "final_dataset_digest": "104fac5c575cb47a1d4fede62f61d06ee561e9ce584936542ea847efcb8ffe46",
+      "requested_model": "DeepSeek-V4.1-Flash-1017",
+      "response_model": "deepseek-flash"
+    }
+  },
+  "checks": {
+    "http_status": true,
+    "real_mode": true,
+    "grounded_citations": true,
+    "bounded_steps": true,
+    "failure_observed": true,
+    "incomplete": true,
+    "failure_status": true,
+    "no_unsupported_answer": true
+  },
+  "passed": true,
+  "elapsed_seconds": 5.461
+}

@@ -1,0 +1,42 @@
+{
+  "checked_date": "2026-11-04",
+  "source": "GitHub REST repository metadata via connected GitHub tool; live star counts change over time",
+  "repositories": [
+    {
+      "repo": "infiniflow/ragflow",
+      "stars": 93481,
+      "license": "Apache-2.0",
+      "default_branch": "main",
+      "url": "https://github.com/infiniflow/ragflow",
+      "source": "https://api.github.com/repos/infiniflow/ragflow",
+      "checked_date": "2026-11-04"
+    },
+    {
+      "repo": "vibrantlabsai/ragas",
+      "stars": 16232,
+      "license": "Apache-2.0",
+      "default_branch": "main",
+      "url": "https://github.com/vibrantlabsai/ragas",
+      "source": "https://api.github.com/repos/vibrantlabsai/ragas",
+      "checked_date": "2026-11-04"
+    },
+    {
+      "repo": "deepset-ai/haystack",
+      "stars": 26925,
+      "license": "Apache-2.0",
+      "default_branch": "main",
+      "url": "https://github.com/deepset-ai/haystack",
+      "source": "https://api.github.com/repos/deepset-ai/haystack",
+      "checked_date": "2026-11-04"
+    },
+    {
+      "repo": "run-llama/llama_index",
+      "stars": 52801,
+      "license": "MIT",
+      "default_branch": "main",
+      "url": "https://github.com/run-llama/llama_index",
+      "source": "https://api.github.com/repos/run-llama/llama_index",
+      "checked_date": "2026-11-04"
+    }
+  ]
+}

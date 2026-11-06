@@ -1,0 +1,164 @@
+{
+  "mode": "real",
+  "provider": "DeepSeek Chat Completions",
+  "requested_model": "DeepSeek-V4.1-Flash-1017",
+  "api_model": "deepseek-flash",
+  "results": [
+    {
+      "name": "normal",
+      "expected": "answered",
+      "actual": "answered",
+      "status": "completed",
+      "checks": {
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "amount_in_answer": true,
+        "amount_in_quote": true,
+        "current_doc": true,
+        "fake_history_not_adopted": true,
+        "answered": true,
+        "replacement_cited": true,
+        "replacement_claim_supported": true,
+        "expected_outcome": true
+      },
+      "passed": true
+    },
+    {
+      "name": "conflict",
+      "expected": "conflict_unresolved",
+      "actual": "conflict_unresolved",
+      "status": "completed",
+      "checks": {
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "conflict": true,
+        "both_read": true,
+        "priority_checked": true,
+        "conflict_gaps": true,
+        "both_cited": true,
+        "expected_outcome": true
+      },
+      "passed": true
+    },
+    {
+      "name": "outside",
+      "expected": "insufficient_evidence",
+      "actual": "insufficient_evidence",
+      "status": "completed",
+      "checks": {
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "no_answer": true,
+        "gaps": true,
+        "no_fabrication": true,
+        "expected_outcome": true
+      },
+      "passed": true
+    },
+    {
+      "name": "paraphrase",
+      "expected": "answered",
+      "actual": "answered",
+      "status": "completed",
+      "checks": {
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "amount_in_answer": true,
+        "amount_in_quote": true,
+        "current_doc": true,
+        "fake_history_not_adopted": true,
+        "answered": true,
+        "replacement_claim_supported": true,
+        "expected_outcome": true
+      },
+      "passed": true
+    },
+    {
+      "name": "followup",
+      "expected": "answered",
+      "actual": "answered",
+      "status": "completed",
+      "checks": {
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "replacement_claim_supported": true,
+        "beijing": true,
+        "expected_outcome": true
+      },
+      "passed": true
+    },
+    {
+      "name": "tool-retry",
+      "expected": "answered",
+      "actual": "answered",
+      "status": "completed",
+      "checks": {
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "failure_observed": true,
+        "recovered": true,
+        "answered": true,
+        "requirement": true,
+        "helpdesk": true,
+        "expected_outcome": true
+      },
+      "passed": true
+    },
+    {
+      "name": "tool-failure",
+      "expected": "tool_failure",
+      "actual": "tool_failure",
+      "status": "incomplete",
+      "checks": {
+        "real_mode": true,
+        "provider": true,
+        "api_model": true,
+        "response_model": true,
+        "requested_model": true,
+        "grounded_citations": true,
+        "bounded_steps": true,
+        "failure_observed": true,
+        "incomplete": true,
+        "failure_status": true,
+        "no_unsupported_answer": true,
+        "expected_outcome": true
+      },
+      "passed": true
+    },
+    {
+      "name": "mutation",
+      "passed": true
+    }
+  ],
+  "note": "自动结果仅初筛，须人工核验语义支持和冲突查证；别名不能锁定后端快照。"
+}
