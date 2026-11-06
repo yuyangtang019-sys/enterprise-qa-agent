@@ -1,60 +1,101 @@
-# 企业知识问答 Agent（题3）
+# 企业知识问答 Agent
 
-本仓库交付题3企业知识问答 Agent。最终提交 SHA 可用 `git rev-parse HEAD` 获取；文档中“尚未提交”的描述记录了开发时的状态，发布状态以 GitHub 仓库和提交历史为准。候选人个人贡献与实际用时仍须本人如实补充。
+本项目对应小影校招 AI Agent 开发考核第 3 题，帮助员工查询企业制度，并获得有资料依据、可追溯的回答。
 
-## 2026-11-06 GitHub 学习改进验收（当前版本）
+面对制度分散、版本不同、问题描述不完整等情况，Agent 会检索相关资料、读取原文，再决定继续查找、回答问题或请求补充信息。遇到相互矛盾的规定时，会说明冲突和需要确认的事项，不擅自选择其中一份。
 
-本轮由 GPT-6.1 Sol high 完成两轮分析，Sol medium 实施；Astra 本轮额度失败后用户明确调整模型，不记为 Astra 成功研究。研究来源及固定commit见 PLANNING.md、examples/github-research-sources.json。采用 Ragas 的断言分层、Haystack 的融合去重、RAGFlow 的候选/TopN分离、LlamaIndex 的细粒度来源思想，独立标准库实现。
+## 项目目标
 
-当前工程测试55/55；真实CLI8/8；真实HTTP39/39（23业务、16协议）；检索压力3个离线排列和1个真实冲突用例通过。准确新证据目录与保护核查见 examples/improvement-summary.json，最近一轮入口 examples/latest-evaluation.json。下文旧测试数及 examples/http、real 路径是保留的历史版本证据，不代表当前协议。
+- **有据可查**：回答附带文档 ID、版本和原文片段，便于员工核对。
+- **如实说明不足**：资料未覆盖的问题明确列出缺口，不编造规定。
+- **审慎处理冲突**：查证制度的适用范围和替代关系，不能仅凭日期较新就认定优先适用。
+- **支持连续提问**：结合对话历史理解“那北京呢”等追问。
+- **明确处理状态**：需要补充信息、工具不可用或未能完成时，清楚告知用户。
 
-finish v2 的 answer 必须为空；模型选择完整句quote、替代方向或绑定事实ID的算术claims，运行器验证后生成展示答案，阻止自由正文对调城市金额。负对照见 examples/requirements-audit/structured-negative-control.json。read返回源文生成的numeric_facts；Decimal带符号差额及合计，等额不同来源也可计算。旧自由finish仅allow_legacy=True显式工程兼容并标source_only_legacy，真实默认不接受。
+## 输入与输出
 
-search按片段二元组与轻量词频两路RRF排序，候选/每页6项分离；返回总数、has_more、next_offset、ranking及related_candidates。翻页必须携带dataset_digest，越界/摘要变化明确失败，不按日期裁定冲突。压力实验代码 examples/retrieval_stress.py 使用临时14篇资料、随机ID及3排列；原始data不变。
+| 内容 | 说明 |
+| --- | --- |
+| 输入 | 员工问题，以及可选的对话历史 |
+| 资料 | 带文档 ID、版本日期和适用范围的合成制度 |
+| 输出 | 回答、引用原文、资料缺口和任务状态 |
 
-两个真实验收脚本使用共享acceptance_checks.py和run_artifacts.py，写入examples/runs唯一目录；未知/空选择器退出2，manifest记录requested/expanded/executed/skipped，漏执行/重复执行不能成功。中断保留incomplete。业务、协议、离线实验分别计数。
+演示知识库包含 10 篇合成资料，涉及差旅住宿、报销材料、年假、采购审批、设备领用和远程访问安全。
 
-已知边界：extractive完整句防止篡改原文，不证明任意制度适用性；数字提取仅有限句型，不是通用NLI。通用缺口模板尚不能标识混合问题中每项未回答主题。真实模型非确定；这些通过结果不等于普遍准确率。个人贡献/实际用时仍由本人如实填写，Git身份/远程缺失，未提交或推送。
+## 典型场景
 
+| 问题或情况 | 处理方式 |
+| --- | --- |
+| “上海出差住宿上限是多少？” | 查阅现行制度，给出标准及原文引用 |
+| “那北京呢？” | 延续上一轮差旅话题，查找北京的对应规定 |
+| “采购两万元需要谁审批？” | 核对相关制度；若审批要求冲突，列出双方依据并请求确认 |
+| “生育津贴能领多少？” | 说明当前资料不足，不编造金额或计算规则 |
+| 资料读取失败 | 尝试补查或恢复；仍无法取得依据时，明确返回未完成 |
 
-企业知识问答 Agent 入口为根目录的 `run.py` / `serve.py`。运行命令均从仓库根目录执行。本机其他项目、本地密钥与虚拟环境不包含在本仓库交付中。
+## 快速开始
 
+需要 Python 3.10 或更高版本。项目仅使用 Python 标准库，无需安装额外依赖。
 
-真实模型每轮选择 search/read/ask_user/finish，执行本地资料工具，将实际观察交还模型决定下一步。输出答案、文档ID/版本/原文、资料缺口、任务状态；支持CLI和本地HTTP API。Python 3.10+，只用标准库，无需安装依赖。
+```bash
+git clone https://github.com/yuyangtang019-sys/enterprise-qa-agent.git
+cd enterprise-qa-agent
+```
 
-```powershell
+首次运行时，配置 DeepSeek API Key：
+
+```bash
 python configure_deepseek.py
-python run.py "上海出差住宿上限？" --trace examples/real-demo.json
+```
+
+按提示输入密钥，输入内容不会显示，配置保存在本地 `.env.local`，不会提交到 Git。配置项可参考 [.env.example](.env.example)。
+
+单次提问：
+
+```bash
+python run.py "上海出差住宿上限是多少？"
+```
+
+连续对话：
+
+```bash
+python run.py --chat
+```
+
+也可启动本地 HTTP 服务：
+
+```bash
 python serve.py --port 8765
 ```
 
-配置脚本在你自己的终端隐藏输入密钥，保存至Git忽略的.env.local，程序只加载允许的三个DeepSeek配置项，不打印密钥；环境变量优先。文件明文留在本机，按需删除。不要将密钥粘贴进聊天。默认真实DeepSeek，无配置报错，绝不自动降级。
-
-用户指定DeepSeek-V4.1-Flash-1017；官方API使用deepseek-flash别名，端点https://api.deepseek.com/chat/completions。实际trace同时记录requested_model、model、response_model；服务返回deepseek-flash，不代表永久锁定权重快照。[官方更新](https://api-docs.deepseek.com/updates/)、[协议](https://api-docs.deepseek.com/api/create-chat-completion/)。保留可选OpenAI Responses适配，使用--provider openai与OPENAI_API_KEY/OPENAI_MODEL。
-
-HTTP默认只监听127.0.0.1。GET /health检查本地进程；POST /ask接收application/json：
+服务地址为 `http://127.0.0.1:8765`，问答入口为 `POST /ask`，请求示例：
 
 ```json
-{"question":"上海出差住宿限额？","session_id":"employee-a","max_steps":12}
+{
+  "question": "上海出差住宿上限是多少？",
+  "session_id": "demo"
+}
 ```
 
-也可提供history数组，每项question/answer及可选dataset_digest，与session_id互斥。返回result与完整trace。未知字段、错误JSON/类型、重复字段、越界输入返回4xx；body上限32768字节，问题2000字符，步数1–20。请求不能指定数据文件、端点或凭据。会话最多100个，每个20轮，进程退出即清空；全局锁串行处理，适合本地演示，非生产多租户服务。服务无用户认证，不应暴露公网。健康检查不调用付费模型。
+## 验证与评审
 
-正常服务禁止fault。只有显式--test-mode允许本地文档read故障注入；决策仍由真实DeepSeek作出。工具错误、非法动作或引用都会成为下一轮观察；有限步数耗尽明确incomplete/step_limit。
+验证覆盖题目要求的明确答案、文档冲突、资料外问题、相似问题改写、上下文追问和工具失败，也包含替换资料后重新回答的场景。
 
-```powershell
+```bash
 python -m unittest discover -s tests -v
 python examples/real_acceptance.py
 python examples/http_selftest.py
-python examples/http_selftest.py --only cross-city,calculation
 ```
 
-工程测试43/43通过；真实CLI验收8/8通过；最终完整HTTP自测39/39通过，耗时100.661秒。真实HTTP涵盖正常、新旧替代、跨城/多文档、冲突诱导、资料外/混合、追问与切换主题、会话隔离、伪造历史、忽略引用、暂时/持续工具失败、上限、深圳缺口、历史时点、计算与资料变更，以及HTTP坏请求。每次实际请求、状态码、响应、trace、断言与耗时写入examples/http；定向回归写独立http-regression-*目录且自动建立所需会话前置。最终数量/通过数见examples/delivery-summary.json与各evaluation.json，失败历史保留。
+后两项使用真实 DeepSeek API；HTTP 自测会自动启动临时服务。已有运行记录、回答和完整 Trace 保存在 [examples](examples/) 中，当前结果见 [验收汇总](examples/improvement-summary.json)。离线 Mock 仅用于流程验证，不作为真实模型效果证明。
 
-引用须来自本轮成功read，ID/版本/片段/数据摘要一致且quote为原文连续子串，正文标记匹配。补充有限的替代句和数字金额启发式检查；允许来自真实引文金额的两数差额/合计并记录verified_calculations。这些检查不能证明普遍语义蕴含，仍需审阅。历史答案仅用于语境，每轮重新读取；资料变化使旧证据失效。
+| 评审材料 | 内容 |
+| --- | --- |
+| [需求说明](docs/01-requirements.md) | 用户、目标、范围和成功标准 |
+| [方案说明](docs/02-solution.md) | 调用流程、动态决策和技术取舍 |
+| [评估报告](docs/03-evaluation.md) | 测试结果、失败记录与已知限制 |
+| [AI 使用记录](docs/04-ai-usage.md) | AI 辅助范围及个人贡献记录 |
+| [项目复盘](docs/05-retrospective.md) | 难点、学习收获与后续改进 |
 
-completed只表示本轮处理结束，可能answered/insufficient_evidence/conflict_unresolved；awaiting_user表示待补充；工具失败及步数上限为incomplete。检索摘要不能作为最终证据，日期新不等于优先。10篇合成制度不能用于真实企业政策决策。
+## 使用范围
 
-交付目录：src实现；data合成资料；tests工程及本地HTTP协议测试；examples实际证据；docs五份考核文档、变更与修复记录。Mock源码和早期记录只保留为历史工程验证，最终业务验收使用真实DeepSeek，不能以Mock结论替代真实结果。
-
-安全核查见examples/security-check.json。trace不记录内部思维和凭据，但会包含业务问题/原文；需使用者控制访问与保留。Git已初始化；缺少作者身份，提交实际失败，未修改全局身份，无SHA，未推送GitHub。
+本项目使用合成资料演示企业制度问答，不代表任何企业的实际政策。引用便于核对来源，但不能替代对制度适用性的判断；资料不足或冲突未解决时，应由制度负责人确认。本地 HTTP 服务用于演示与测试。
